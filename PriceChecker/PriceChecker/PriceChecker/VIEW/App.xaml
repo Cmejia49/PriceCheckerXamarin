@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PriceChecker.App">
+    <Application.Resources>
+        <OnPlatform x:TypeArguments="x:String" x:Key="BoldFont">
+            <On Platform="Android" Value="PlayfairDisplaySC-Bold.otf#play fair" />
+           
+        </OnPlatform>
+        <OnPlatform x:TypeArguments="x:String" x:Key="NormalFont">
+            <On Platform="Android" Value="PlayfairDisplaySC-Regular.otf#play fair"  />
+          
+        </OnPlatform>
+        <ResourceDictionary>
+            <Style x:Key="AdminBtn" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#e8c433"  />
+                <Setter Property="WidthRequest" Value="80"     />
+                <Setter Property="HeightRequest" Value="80"/>
+                <Setter Property="BorderRadius" Value="40"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="BorderColor" Value="DarkBlue"/>
+                <Setter Property="ImageSource" Value="icon1.png"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+            </Style>
+            <Style x:Key="UserBtn" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#e8c433"  />
+                <Setter Property="WidthRequest" Value="80"     />
+                <Setter Property="HeightRequest" Value="80"/>
+                <Setter Property="BorderRadius" Value="40"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="BorderColor" Value="DarkBlue"/>
+                <Setter Property="Padding" Value="10"/>
+                <Setter Property="ImageSource" Value="icon3.png"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+            </Style>
+
+
+
+            <Style x:Key="BgColor" TargetType="ContentPage">
+                <Setter Property="BackgroundColor" Value="#f4efe6"/>
+
+            </Style>
+            <Color x:Key="Primary">#c78718</Color>
+       
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="BarTextColor" Value="White" />
+            
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

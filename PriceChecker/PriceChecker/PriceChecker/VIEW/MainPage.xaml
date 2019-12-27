@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PriceChecker"
+             x:Class="PriceChecker.MainPage"
+             BackgroundColor="WhiteSmoke">
+
+    <NavigationPage.TitleView>
+        <StackLayout>
+            <Label Text="Welcome" FontFamily="{StaticResource NormalFont}" FontSize="Small" TextColor="White" />
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <AbsoluteLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"  />
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Image Source="finals.png" HorizontalOptions="CenterAndExpand" WidthRequest="150" HeightRequest="150" Aspect="AspectFit" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"/>
+
+            <Button  Style="{StaticResource AdminBtn}" Grid.Row="1" Grid.Column="0"/>
+
+
+            <Button Style="{StaticResource UserBtn}" Grid.Row="1" Grid.Column="2" Clicked="OnButtonClicked" />
+            <Label Text="Admin" HorizontalTextAlignment="Center" Grid.Row="2" Grid.Column="0"/>
+            <Label Text="User"  HorizontalTextAlignment="Center" Grid.Row="2" Grid.Column="2"/>
+
+        </Grid>
+        <ContentView x:Name="popupLoginView" Padding="10, 0" IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+            <StackLayout VerticalOptions="Center" HorizontalOptions="Center"   BackgroundColor="#80ffffff">
+                <StackLayout Orientation="Vertical" HeightRequest="200" WidthRequest="300" >
+                    <Entry Margin="20,20,20,10" Placeholder="Enter Username"></Entry>
+                    <Entry Margin="20,0,20,0" Placeholder="Enter Password"></Entry>
+                    <Button Margin="20,0,20,0" Text="Login"></Button>
+                </StackLayout>
+            </StackLayout>
+        </ContentView>
+    </AbsoluteLayout>
+
+</ContentPage>

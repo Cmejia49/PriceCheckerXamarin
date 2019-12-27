@@ -1,0 +1,13 @@
+C:\Users\christopher\source\repos\PriceChecker\PriceChecker\PriceChecker\bin\Debug\netstandard2.0\PriceChecker.deps.json
+C:\Users\christopher\source\repos\PriceChecker\PriceChecker\PriceChecker\bin\Debug\netstandard2.0\PriceChecker.dll
+C:\Users\christopher\source\repos\PriceChecker\PriceChecker\PriceChecker\bin\Debug\netstandard2.0\PriceChecker.pdb
+C:\Users\christopher\source\repos\PriceChecker\PriceChecker\PriceChecker\obj\Debug\netstandard2.0\PriceChecker.csprojAssemblyReference.cache
+C:\Users\christopher\source\repos\PriceChecker\PriceChecker\PriceChecker\obj\Debug\netstandard2.0\VIEW\App.xaml.g.cs
+C:\Users\christopher\source\repos\PriceChecker\PriceChecker\PriceChecker\obj\Debug\netstandard2.0\VIEW\MainPage.xaml.g.cs
+C:\Users\christopher\source\repos\PriceChecker\PriceChecker\PriceChecker\obj\Debug\netstandard2.0\PriceChecker.csproj.CoreCompileInputs.cache
+C:\Users\christopher\source\repos\PriceChecker\PriceChecker\PriceChecker\obj\Debug\netstandard2.0\PriceChecker.AssemblyInfoInputs.cache
+C:\Users\christopher\source\repos\PriceChecker\PriceChecker\PriceChecker\obj\Debug\netstandard2.0\PriceChecker.AssemblyInfo.cs
+C:\Users\christopher\source\repos\PriceChecker\PriceChecker\PriceChecker\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\christopher\source\repos\PriceChecker\PriceChecker\PriceChecker\obj\Debug\netstandard2.0\PriceChecker.dll
+C:\Users\christopher\source\repos\PriceChecker\PriceChecker\PriceChecker\obj\Debug\netstandard2.0\PriceChecker.pdb
+C:\Users\christopher\source\repos\PriceChecker\PriceChecker\PriceChecker\obj\Debug\netstandard2.0\VIEW\AdminPage.xaml.g.cs
