@@ -1,8 +1,6 @@
-﻿using PriceChecker.VIEW;
-using System;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
+using PriceChecker.VIEW;
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace PriceChecker
 {
@@ -12,12 +10,18 @@ namespace PriceChecker
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPage());
+
+
+            OnAppStart();
         }
 
-        protected override void OnStart()
+
+        public void OnAppStart()
         {
-            // Handle when your app starts
+
+            MainPage = new NavigationPage(new FrontPage());
+
+
         }
 
         protected override void OnSleep()

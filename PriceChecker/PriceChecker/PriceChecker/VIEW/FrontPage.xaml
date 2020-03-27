@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PriceChecker.VIEW.FrontPage"
+    NavigationPage.HasNavigationBar="False"
+             BackgroundColor="WhiteSmoke">
+
+    <AbsoluteLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"  />
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+
+            </Grid.ColumnDefinitions>
+
+
+            <Button Command="{Binding _ShowAdminPage}" Style="{StaticResource AdminBtn}" Grid.Row="1" Grid.Column="0"/>
+
+
+            <Button Command="{Binding _ShowUserPage}" Style="{StaticResource UserBtn}" Grid.Row="1" Grid.Column="2" />
+            <Label Text="Admin" HorizontalTextAlignment="Center" Grid.Row="2" Grid.Column="0"/>
+            <Label Text="User"  HorizontalTextAlignment="Center" Grid.Row="2" Grid.Column="2"/>
+
+        </Grid>
+        <ContentView x:Name="popupLoginView" Padding="10, 0" IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+            <StackLayout VerticalOptions="Center" HorizontalOptions="Center"   BackgroundColor="#80ffffff">
+                <StackLayout Orientation="Vertical" HeightRequest="200" WidthRequest="300" >
+                    <Entry Margin="20,20,20,10" Placeholder="Enter Username"></Entry>
+                    <Entry Margin="20,0,20,0" Placeholder="Enter Password"></Entry>
+                    <Button Margin="20,0,20,0" Text="Login"></Button>
+                </StackLayout>
+            </StackLayout>
+        </ContentView>
+    </AbsoluteLayout>
+</ContentPage>

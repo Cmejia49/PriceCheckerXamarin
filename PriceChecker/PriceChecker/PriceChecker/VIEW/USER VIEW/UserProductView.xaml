@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PriceChecker.VIEW.USER_VIEW.UserProductView">
+
+        <StackLayout BackgroundColor="#0fffff" Padding="5,10" >
+            <Entry Style="{StaticResource DetailEntry}"  Placeholder="Product ID"/>
+
+            <Entry Text="{Binding ProductCode}" Style="{StaticResource DetailEntry}"  Placeholder="Product Code"/>
+
+            <Entry Text="{Binding ProductName}" Style="{StaticResource DetailEntry}"  Placeholder="Product Name"/>
+
+            <Entry Text="{Binding ProductPrice}" Style="{StaticResource DetailEntry}" Placeholder="Product Price" Keyboard="Numeric"/>
+
+        </StackLayout>
+
+
+</ContentView>

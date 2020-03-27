@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:system="clr-namespace:System;assembly=netstandard"
              x:Class="PriceChecker.App">
     <Application.Resources>
         <OnPlatform x:TypeArguments="x:String" x:Key="BoldFont">
@@ -11,6 +12,15 @@
             <On Platform="Android" Value="PlayfairDisplaySC-Regular.otf#play fair"  />
           
         </OnPlatform>
+        <OnPlatform x:TypeArguments="x:Double" x:Key="WindowBackgroundTable">
+            <On Platform="Android" Value="15" />
+       
+        </OnPlatform>
+        <Style x:Key="btnconverter" TargetType="Button">
+            <Setter Property="FontSize" Value="{DynamicResource WindowBackgroundTable}" />
+            <Setter Property="HeightRequest" Value="40"/>
+            <Setter Property="BackgroundColor" Value="#e8c433"  />
+        </Style>
         <ResourceDictionary>
             <Style x:Key="AdminBtn" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="#e8c433"  />
@@ -22,6 +32,7 @@
                 <Setter Property="BorderColor" Value="DarkBlue"/>
                 <Setter Property="ImageSource" Value="icon1.png"/>
                 <Setter Property="HorizontalOptions" Value="Center"/>
+              
             </Style>
             <Style x:Key="UserBtn" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="#e8c433"  />
@@ -31,9 +42,8 @@
                 <Setter Property="HorizontalOptions" Value="Center"/>
                 <Setter Property="VerticalOptions" Value="Center"/>
                 <Setter Property="BorderColor" Value="DarkBlue"/>
-                <Setter Property="Padding" Value="10"/>
                 <Setter Property="ImageSource" Value="icon3.png"/>
-                <Setter Property="HorizontalOptions" Value="Center"/>
+     
             </Style>
 
 
@@ -42,12 +52,32 @@
                 <Setter Property="BackgroundColor" Value="#f4efe6"/>
 
             </Style>
-            <Color x:Key="Primary">#c78718</Color>
-       
+            <Color x:Key="Primary">#80c78718</Color>
+            <system:Int32 x:Key="ads">15</system:Int32>
             <Style TargetType="NavigationPage">
                 <Setter Property="BarBackgroundColor" Value="{StaticResource Primary}" />
                 <Setter Property="BarTextColor" Value="White" />
-            
+             
+            </Style>
+
+            <Style x:Key="DetailLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="Small"/>
+            </Style>
+            <Style x:Key="DetailEntry" TargetType="Entry">
+                <Setter Property="HeightRequest" Value="40"/>
+                <Setter Property="FontSize" Value="Caption"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                <Setter Property="PlaceholderColor" Value="Black"/>
+            </Style>
+
+
+
+            <Style x:Key="BackBtn" TargetType="ImageButton">
+                <Setter Property="Source" Value="back.png"/>
+                <Setter Property="HorizontalOptions" Value="End"/>
+                <Setter Property="WidthRequest" Value="18"/>
+                <Setter Property="HeightRequest" Value="18"/>
+                <Setter Property="BackgroundColor" Value="#e8c433"/>
             </Style>
         </ResourceDictionary>
     </Application.Resources>

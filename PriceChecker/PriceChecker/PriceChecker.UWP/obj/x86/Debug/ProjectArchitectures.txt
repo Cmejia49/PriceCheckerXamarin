@@ -1,0 +1,1 @@
+D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker.UWP\PriceChecker.UWP.csproj;x86
