@@ -6,6 +6,8 @@ using PriceChecker.MODEL;
 using PriceChecker.SERVICE;
 using System;
 using PriceChecker.VIEWMODEL.ADMIN_VIEWMODEL;
+using PriceChecker.Validation.Validators.Implementations;
+
 namespace PriceChecker.VIEWMODEL
 {
     public class BaseProductViewModel : INotifyPropertyChanged 
@@ -14,23 +16,26 @@ namespace PriceChecker.VIEWMODEL
         public ProductInfo _ProductInfo;
         public INavigation _Navigation;
         public IProductRepository _IProductRepositoty;
-        public string _SearchText;
-        public bool isValid;
         public NewProductViewModel _NewProductViewModel;
         public ProductDetailViewModel _ProductDetailViewModel;
+      
+        public int ProductID
+        {
+            get => _ProductInfo.ProductID;
+            set
+            {
+
+                _ProductInfo.ProductID = value;
+                OnpropertyChanged("ProductID");
+            }
+        }
         public string ProductCode
         {
             get => _ProductInfo.ProductCode;
             set
-            {
-                if (value != null)
-                {
+            {  
                     _ProductInfo.ProductCode = value.ToUpper();
                     OnpropertyChanged("ProductCode");
-
-                   isValid = true;
-                }
-                isValid = false;
             }
         }
 
@@ -39,7 +44,7 @@ namespace PriceChecker.VIEWMODEL
             get => _ProductInfo.ProductName;
             set
             {
-                _ProductInfo.ProductName = value;
+                _ProductInfo.ProductName = value.ToUpper();
                 OnpropertyChanged("ProductName");
             }
         }
@@ -64,6 +69,7 @@ namespace PriceChecker.VIEWMODEL
         }
 
         //Search property
+        public string _SearchText { get; set; }
         public string SearchText
         {
             get { return _SearchText; }
@@ -75,17 +81,27 @@ namespace PriceChecker.VIEWMODEL
                 
             }
         }
-        public string lblmessage { get; set; }
-        public string LblMessage
+        public string lblConvertCode { get; set; }
+        public string LblConverCode
         {
-            get => lblmessage;
+            get => lblConvertCode;
             set
             {
-                lblmessage = "tae";
-                OnpropertyChanged("LblMessage");
+                lblConvertCode = value;
+                OnpropertyChanged("LblConverCode");
             }
         }
 
+        public bool isEditable { get; set; }
+        public bool IsEditable
+        {
+            get => isEditable;
+            set
+            {
+                isEditable = value;
+                OnpropertyChanged("IsEditable");
+            }
+        }
 
         internal IProductRepository ProductRepository { get => ProductRepository1; set => ProductRepository1 = value; }
       internal IProductRepository ProductRepository1 { get => _IProductRepositoty; set => _IProductRepositoty = value; }

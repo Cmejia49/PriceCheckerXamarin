@@ -3,14 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PriceChecker.VIEW.USER_VIEW.UserProductView">
 
-        <StackLayout BackgroundColor="#0fffff" Padding="5,10" >
-            <Entry Style="{StaticResource DetailEntry}"  Placeholder="Product ID"/>
+        <StackLayout Padding="10,10" >
+        <Entry Text="{Binding ProductID}" Style="{StaticResource DetailEntry}" IsReadOnly="True"  Placeholder="Product ID"/>
 
-            <Entry Text="{Binding ProductCode}" Style="{StaticResource DetailEntry}"  Placeholder="Product Code"/>
+        <Entry Text="{Binding ProductCode}" Style="{StaticResource DetailEntry}" IsReadOnly="True"/>
 
-            <Entry Text="{Binding ProductName}" Style="{StaticResource DetailEntry}"  Placeholder="Product Name"/>
+        <Entry Text="{Binding ProductName}" Style="{StaticResource DetailEntry}" IsReadOnly="True"  />
 
-            <Entry Text="{Binding ProductPrice}" Style="{StaticResource DetailEntry}" Placeholder="Product Price" Keyboard="Numeric"/>
+        <Entry Text="{Binding ProductPrice}" Style="{StaticResource DetailEntry}" IsReadOnly="True" />
 
         </StackLayout>
 

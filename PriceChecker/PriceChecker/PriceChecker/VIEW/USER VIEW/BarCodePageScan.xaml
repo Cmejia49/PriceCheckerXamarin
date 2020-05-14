@@ -1,43 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
              x:Class="PriceChecker.VIEW.USER_VIEW.BarCodePageScan">
-    <AbsoluteLayout Padding="10,10">
-        <Grid Padding="10,20,10,40">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-            <Grid Grid.Row="0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Entry Placeholder="Search" Grid.Column="0" Grid.ColumnSpan="3"/>
-            </Grid>
-            <ListView x:Name="ContactListView" HasUnevenRows="true" Grid.Row="1" SeparatorColor="Black" BackgroundColor="#0fffff">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Grid  Padding="10">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-                                <Label Text="dasd" Grid.Row="0" Font="20" TextColor="Black" />
-                                <Label Text="asd" Grid.Row="0" Font="20" Grid.Column="1" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" TextColor="Black" />
-                                <Label Text="asd" Grid.Row="1" Grid.Column="0" HorizontalOptions="FillAndExpand" TextColor="Black" />
-                            </Grid>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-            <Button Text="Search Product Name" Grid.Row="2" BorderRadius="0" VerticalOptions="EndAndExpand" FontAttributes="Bold" TextColor="White" BackgroundColor="#e8c433"/>
-        </Grid>
-    </AbsoluteLayout>
+
+    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <zxing:ZXingScannerView IsScanning="{Binding IsScanning}" IsAnalyzing="{Binding IsAnalyzing}" Result="{Binding Result, Mode=TwoWay}" ScanResultCommand="{Binding QRScanResultCommand}"/>
+        <zxing:ZXingDefaultOverlay TopText="Put the redline in the barcode"  ShowFlashButton="False" Opacity="0.9"/>
+    </Grid>
+
 </ContentPage>

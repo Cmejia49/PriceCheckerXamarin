@@ -3,9 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                xmlns:local="clr-namespace:PriceChecker.VIEW.USER_VIEW"
              x:Class="PriceChecker.VIEW.USER_VIEW.UserProductDetailPage">
-    <StackLayout Padding="20" Spacing="12">
+    <StackLayout Padding="20" Spacing="20">
         <local:UserProductView></local:UserProductView>
-        <Button Text="Convert Code"  Style="{StaticResource btnconverter}" />
-        <Label Text="9999" HorizontalOptions="Center" TextColor="Black"/>
+        <Button Text="Convert Code"  Style="{StaticResource btnconverter}" Command="{Binding _codeConverter }" />
+        <Label Text="{Binding LblConverCode}" HorizontalOptions="Center" TextColor="Black"/>
     </StackLayout>
 </ContentPage>

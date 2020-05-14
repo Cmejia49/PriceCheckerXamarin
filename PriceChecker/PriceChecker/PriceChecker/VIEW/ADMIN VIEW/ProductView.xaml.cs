@@ -15,6 +15,7 @@ namespace PriceChecker.VIEW.ADMIN_VIEW
 		public ProductView ()
 		{
 			InitializeComponent ();
+
 		}
 	}
 }

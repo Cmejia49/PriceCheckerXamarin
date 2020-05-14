@@ -4,17 +4,9 @@
              xmlns:Behaviors="clr-namespace:PriceChecker.Validation.Behavior"
              xmlns:Validators="clr-namespace:PriceChecker.Validation.Validators.Implementations"
              x:Class="PriceChecker.VIEW.ADMIN_VIEW.NewProduct"
-             xmlns:view ="clr-namespace:PriceChecker.VIEW.ADMIN_VIEW"
-             
-   >
- 
+             xmlns:view ="clr-namespace:PriceChecker.VIEW.ADMIN_VIEW">
     <StackLayout Padding="10,10,10,10">
-
-
         <view:ProductView></view:ProductView>
-        <Button Command="{Binding AddProductCommand}" Text="Submit"/>
-
-
-
+        <Button Command="{Binding AddProductCommand}" Text="Submit" BackgroundColor="#e8c433"/>
     </StackLayout>
 </ContentPage>

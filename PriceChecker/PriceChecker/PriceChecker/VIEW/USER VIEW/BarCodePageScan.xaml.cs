@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PriceChecker.VIEWMODEL.USER_VIEWMODEL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace PriceChecker.VIEW.USER_VIEW
 		public BarCodePageScan ()
 		{
 			InitializeComponent ();
+            BindingContext = new BarCodeScanViewModel(Navigation);
 		}
 	}
 }

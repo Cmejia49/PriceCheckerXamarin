@@ -7,6 +7,8 @@ using PriceChecker.sqliteHELPER;
 using PriceChecker.VIEW;
 using PriceChecker.SERVICE;
 using PriceChecker.VIEWMODEL.ADMIN_VIEWMODEL;
+using Rg.Plugins.Popup.Services;
+
 namespace PriceChecker.VIEWMODEL
 {
     public class TheViewModel:BaseProductViewModel
@@ -25,7 +27,7 @@ namespace PriceChecker.VIEWMODEL
                 execute: async () =>
                 {
                 await ShowAdminPage();
-                    RefreshCanExecutes();
+           
                 });
 
             _ShowUserPage = new Xamarin.Forms.Command(
@@ -37,25 +39,16 @@ namespace PriceChecker.VIEWMODEL
 
         public async Task ShowAdminPage()
         {
-               var getLocalDB = ProductRepository.GetAllProductInfos();
-            if (getLocalDB.Count > 0)
-            {
-                await _Navigation.PushAsync(new AdminPage());
-            }
-            else
-            {
-                await _Navigation.PushAsync(new NewProduct());
-            }
+            await PopupNavigation.Instance.PushAsync(new LogInPage(_Navigation));
         }
         public async Task ShowUserPage()
         {
-            await _Navigation.PushAsync(new UserPage());
+            await _Navigation.PushAsync(new UserPage(""));
         }
 
 
         void RefreshCanExecutes()
         {
-            (_ShowAdminPage as Command).ChangeCanExecute();
             (_ShowUserPage as Command).ChangeCanExecute();
         }
 

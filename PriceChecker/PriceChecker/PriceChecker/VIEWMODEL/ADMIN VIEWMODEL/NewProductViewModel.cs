@@ -19,11 +19,13 @@ namespace PriceChecker.VIEWMODEL.ADMIN_VIEWMODEL
     {
         public ICommand AddProductCommand { get; set; }
 
-        string ShopCode = "^[D,A,N,T,E,M,O,J,I,S]{1,10}$";
+        private List<ProductInfo> _CheckedProductList;
+        private static string ShopCode = "^[D,A,N,T,E,M,O,J,I,S]{1,10}$";
        
 
-        public NewProductViewModel(INavigation navigation)
+        public NewProductViewModel(INavigation navigation,bool iseditable)
         {
+            IsEditable = iseditable;
             Regex rgx = new Regex(ShopCode);
             PropertyChanged += OnProductAddPropertyChanged;
             _Navigation = navigation;
@@ -37,12 +39,14 @@ namespace PriceChecker.VIEWMODEL.ADMIN_VIEWMODEL
                    },
             canExecute: () =>
             {
+                _CheckedProductList = ProductRepository.CheckProductDuplicateInsert(ProductName);
                 return ProductCode != null &&
                          ProductName != null &&
                           ProductPrice != null &&
                            ProductCode.Length > 0 &&
                             ProductName.Length > 2 &&
                              ProductPrice.Length > 0 &&
+                             _CheckedProductList.Count == 0 &&
                               rgx.IsMatch(ProductCode);
                            
             });
@@ -58,37 +62,6 @@ namespace PriceChecker.VIEWMODEL.ADMIN_VIEWMODEL
         }
 
     
-
-        /*   public void validator()
-           {
-               try
-               {
-                   int size = _ProductInfo.ProductCode.Length;
-
-                   char[] code = new char[10] { 'S', 'D', 'A', 'N', 'T', 'E', 'M', 'O', 'J', 'I' };
-
-                   int i, j, flag = 0;
-                   for (i = 0; i < size; i++)
-                   {
-                       for (j = 0; j < 10; j++)
-                       {
-                           if (code[j] == _ProductInfo.ProductCode[j])
-                           {
-                               flag++;
-
-                           }
-                       }
-                   }
-                   if (flag != size)
-                   {
-
-                   }
-               }
-               catch(Exception e)
-               {
-                   Console.WriteLine(e.Message);
-               }
-           }*/
 
         void OnProductAddPropertyChanged(object sender, PropertyChangedEventArgs args)
         {

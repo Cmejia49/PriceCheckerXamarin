@@ -10,6 +10,8 @@ namespace PriceChecker.SERVICE
 
         List<ProductInfo> FindProductInfos(string productName);
 
+        List<ProductInfo> CheckProductDuplicateInsert(string productName);
+
         ProductInfo GetProduct(int ID);
 
         void InsertProduct(ProductInfo product);

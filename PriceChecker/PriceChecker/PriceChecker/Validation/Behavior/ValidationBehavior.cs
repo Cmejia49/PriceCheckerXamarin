@@ -11,24 +11,32 @@ namespace PriceChecker.Validation.Behavior
 {
     public class ValidationBehavior : Behavior<View>
     {
-
+     
+        
         IErrorStyle _style = new BasicErrorStyle();
         View _view;
+
         public string PropertyName { get; set; }
-      //  public ValidationGroupBehavior Group { get; set; }
+
+        
+        //  public ValidationGroupBehavior Group { get; set; }
         public ObservableCollection<IValidator> Validators { get; set; } = new ObservableCollection<IValidator>();
-       
+  
+
         public bool Validate()
         {
-           bool  isValid = true;
+
+           bool  isValid = true;    
             string errorMessage = "";
 
+           
             foreach (IValidator validator in Validators)
             {
                 bool result = validator.check(_view.GetType()
                                        .GetProperty(PropertyName)
                                        .GetValue(_view) as string);
                 isValid = isValid && result;
+
 
                 if (!result)
                 {
@@ -89,3 +97,4 @@ namespace PriceChecker.Validation.Behavior
         }
     }
 }
+

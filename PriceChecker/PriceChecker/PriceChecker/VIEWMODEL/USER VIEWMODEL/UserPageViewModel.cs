@@ -23,14 +23,18 @@ namespace PriceChecker.VIEWMODEL.USER_VIEWMODEL
 
         public ICommand _ShowScanPage { get; set; }
         public ICommand _SearchProduct { get; private set; }
+       
 
-        public UserPageViewModel(INavigation navigation)
+        public UserPageViewModel(INavigation navigation,string searchString)
         {
             _Navigation = navigation;
             _ShowScanPage = new Xamarin.Forms.Command(async () => await ShowScanPage());
             _SearchProduct = new Xamarin.Forms.Command(this.PerformSearch);
             _ProductInfo = new ProductInfo();
             ProductRepository = new ProductRepository();
+            SearchText = searchString;
+
+
 
             GetProductData();
         }

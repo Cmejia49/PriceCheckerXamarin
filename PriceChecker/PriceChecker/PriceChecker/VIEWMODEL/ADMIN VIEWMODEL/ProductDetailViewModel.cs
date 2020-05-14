@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
-using System.Text;
+using System.Diagnostics;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using PriceChecker.MODEL;
 using PriceChecker.SERVICE;
-using PriceChecker.VIEWMODEL;
+using PriceChecker.VIEW.ADMIN_VIEW;
 using Xamarin.Forms;
 
 namespace PriceChecker.VIEWMODEL.ADMIN_VIEWMODEL
@@ -16,11 +15,12 @@ namespace PriceChecker.VIEWMODEL.ADMIN_VIEWMODEL
     {
         public ICommand UpdateProductCommand { get; set; }
         public ICommand DeleteProductCommand { get; set; }
+        public ICommand BarCodeGeneratorCommand { get; set; }
+        private static string ShopCode = "^[D,A,N,T,E,M,O,J,I,S]{1,10}$";
 
-        string ShopCode = "^[D,A,N,T,E,M,O,J,I,S]{1,10}$";
-
-        public ProductDetailViewModel(INavigation navigation, int selectedProductID)
+        public ProductDetailViewModel(INavigation navigation, int selectedProductID, bool iseditable)
         {
+            IsEditable = iseditable;
             Regex rgx = new Regex(ShopCode);
             PropertyChanged += OnPersonEditPropertyChanged;
             _Navigation = navigation;
@@ -43,8 +43,8 @@ namespace PriceChecker.VIEWMODEL.ADMIN_VIEWMODEL
                                  rgx.IsMatch(ProductCode);
 
                 });
-            DeleteProductCommand = new Xamarin.Forms.Command(async () => await DeleteCommand());
-
+            DeleteProductCommand = new Command(async () => await DeleteCommand());
+            BarCodeGeneratorCommand = new Command(async () => await ShowBarCodeGenerator());
             GetProductData();
         }
 
@@ -64,10 +64,18 @@ namespace PriceChecker.VIEWMODEL.ADMIN_VIEWMODEL
             await _Navigation.PopAsync();
         }
 
+        async Task ShowBarCodeGenerator()
+        {
+            await _Navigation.PushAsync(new BarCodeGeneratorPage(_ProductInfo.ProductID, IsEditable));
+        }
+
         void OnPersonEditPropertyChanged(object sender, PropertyChangedEventArgs args)
         {
             (UpdateProductCommand as Command).ChangeCanExecute();
         }
+
+        //productname == productname && productid != _selectedID
+        //error
 
     }
 }

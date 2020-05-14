@@ -13,10 +13,10 @@ namespace PriceChecker.VIEW.ADMIN_VIEW
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class NewProduct : ContentPage
 	{
-		public NewProduct()
+		public NewProduct(bool iseditable)
 		{
 			InitializeComponent ();
-            this.BindingContext = new NewProductViewModel(Navigation);
+            this.BindingContext = new NewProductViewModel(Navigation,iseditable);
         //    this.BindingContext = new ValidationCommand();
 
         }

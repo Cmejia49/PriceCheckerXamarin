@@ -32,7 +32,6 @@
                 <Setter Property="BorderColor" Value="DarkBlue"/>
                 <Setter Property="ImageSource" Value="icon1.png"/>
                 <Setter Property="HorizontalOptions" Value="Center"/>
-              
             </Style>
             <Style x:Key="UserBtn" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="#e8c433"  />
@@ -43,26 +42,21 @@
                 <Setter Property="VerticalOptions" Value="Center"/>
                 <Setter Property="BorderColor" Value="DarkBlue"/>
                 <Setter Property="ImageSource" Value="icon3.png"/>
-     
             </Style>
 
+                <Style x:Key="AddBtnStyle" TargetType="Button">
+                    <Setter Property="BackgroundColor" Value="#e8c433"  />
+                    <Setter Property="BorderWidth" Value="0"/>
+                    <Setter Property="FontAttributes" Value="bold"/>
+                    <Setter Property="TextColor" Value="White"/>
+                </Style>
 
 
-            <Style x:Key="BgColor" TargetType="ContentPage">
-                <Setter Property="BackgroundColor" Value="#f4efe6"/>
 
-            </Style>
-            <Color x:Key="Primary">#80c78718</Color>
-            <system:Int32 x:Key="ads">15</system:Int32>
-            <Style TargetType="NavigationPage">
-                <Setter Property="BarBackgroundColor" Value="{StaticResource Primary}" />
-                <Setter Property="BarTextColor" Value="White" />
-             
-            </Style>
-
-            <Style x:Key="DetailLabel" TargetType="Label">
+                <Style x:Key="DetailLabel" TargetType="Label">
                 <Setter Property="FontSize" Value="Small"/>
             </Style>
+            
             <Style x:Key="DetailEntry" TargetType="Entry">
                 <Setter Property="HeightRequest" Value="40"/>
                 <Setter Property="FontSize" Value="Caption"/>
@@ -71,13 +65,16 @@
             </Style>
 
 
+            <!-- Colors -->
+            <Color x:Key="NavigationBarColor">#e8c433</Color>
+            <Color x:Key="NavigationBarTextColor">White</Color>
 
-            <Style x:Key="BackBtn" TargetType="ImageButton">
-                <Setter Property="Source" Value="back.png"/>
-                <Setter Property="HorizontalOptions" Value="End"/>
-                <Setter Property="WidthRequest" Value="18"/>
-                <Setter Property="HeightRequest" Value="18"/>
-                <Setter Property="BackgroundColor" Value="#e8c433"/>
+            <!-- Implicit styles -->
+            <Style TargetType="{x:Type NavigationPage}">
+                <Setter Property="BarBackgroundColor"
+                    Value="{StaticResource NavigationBarColor}" />
+                <Setter Property="BarTextColor"
+                    Value="{StaticResource NavigationBarTextColor}" />
             </Style>
         </ResourceDictionary>
     </Application.Resources>

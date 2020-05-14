@@ -4,20 +4,7 @@
              xmlns:Behaviors="clr-namespace:PriceChecker.Validation.Behavior"
              xmlns:Validators="clr-namespace:PriceChecker.Validation.Validators.Implementations"
              x:Class="PriceChecker.VIEW.ADMIN_VIEW.ProductView" x:Name="UC">
-    <ContentView.Content>
-        
-        <StackLayout BackgroundColor="#0fffff" Padding="5,10" >
-            
-            <Entry  Style="{StaticResource DetailEntry}"  Placeholder="Product ID" >
-                <Entry.Behaviors>
-                    <Behaviors:ValidationBehavior PropertyName="Text">
-                        <Behaviors:ValidationBehavior.Validators>
-                            <Validators:RequiredValidator />
-                        </Behaviors:ValidationBehavior.Validators>
-                    </Behaviors:ValidationBehavior>
-                </Entry.Behaviors>
-            </Entry>
-
+    <StackLayout Padding="10,10" >
             <Entry Text="{Binding ProductCode, Mode=TwoWay}" Style="{StaticResource DetailEntry}"  Placeholder="Product Code">
                 <Entry.Behaviors>
                     <Behaviors:ValidationBehavior  PropertyName="Text">
@@ -30,18 +17,16 @@
                     </Behaviors:ValidationBehavior>
                 </Entry.Behaviors>
             </Entry>
-
-            <Entry Text="{Binding ProductName, Mode=TwoWay}"  Style="{StaticResource DetailEntry}"  Placeholder="Product Name">
+            <Entry  Text="{Binding ProductName, Mode=TwoWay}"  Style="{StaticResource DetailEntry}"  IsReadOnly="{Binding IsEditable}" Placeholder="Product Name">
                 <Entry.Behaviors>
-                    <Behaviors:ValidationBehavior PropertyName="Text">
+                    <Behaviors:ValidationBehavior PropertyName="Text"  >
                         <Behaviors:ValidationBehavior.Validators>
-                            <Validators:RequiredValidator />
+                            <Validators:RequiredValidator/>
+                            <Validators:InputSizeValidator/>
                         </Behaviors:ValidationBehavior.Validators>
                     </Behaviors:ValidationBehavior>
                 </Entry.Behaviors>
-
             </Entry>
-
             <Entry Text="{Binding ProductPrice, Mode=TwoWay}"  Style="{StaticResource DetailEntry}" Placeholder="Product Price" Keyboard="Numeric">
                 <Entry.Behaviors>
                     <Behaviors:ValidationBehavior PropertyName="Text">
@@ -51,8 +36,5 @@
                     </Behaviors:ValidationBehavior>
                 </Entry.Behaviors>
             </Entry>
-            
         </StackLayout>
-
-            </ContentView.Content>
 </ContentView>

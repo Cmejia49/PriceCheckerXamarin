@@ -12,14 +12,11 @@ namespace PriceChecker.VIEW.USER_VIEW
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class UserPage : ContentPage
 	{
-		public UserPage ()
+		public UserPage (string SearchString)
 		{
 			InitializeComponent ();
-            
-		}
-        protected override void OnAppearing()
-        {
-            this.BindingContext = new UserPageViewModel(Navigation);
+            BindingContext = new UserPageViewModel(Navigation, SearchString);
         }
+       
     }
 }

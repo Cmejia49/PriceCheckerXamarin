@@ -21,6 +21,10 @@ namespace PriceChecker.SERVICE
            return _SqliteHelper.FindProductInfos(productName);
         }
 
+        public List<ProductInfo> CheckProductDuplicateInsert(string productName)
+        {
+            return _SqliteHelper.CheckProductDuplicateInsert(productName);
+        }
         public List<ProductInfo> GetAllProductInfos()
         {
           return  _SqliteHelper.GetAllProductInfos();

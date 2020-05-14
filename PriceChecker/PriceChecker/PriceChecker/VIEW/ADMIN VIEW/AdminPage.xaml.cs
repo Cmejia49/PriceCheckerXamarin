@@ -19,7 +19,7 @@ namespace PriceChecker.VIEW
 		}
         protected override void OnAppearing()
         {
-            this.BindingContext = new AdminPageViewModel(Navigation);
+            BindingContext = new AdminPageViewModel(Navigation);
         }
     }
 }

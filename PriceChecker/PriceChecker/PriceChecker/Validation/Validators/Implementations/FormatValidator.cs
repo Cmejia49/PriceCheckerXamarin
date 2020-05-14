@@ -9,7 +9,7 @@ namespace PriceChecker.Validation.Validators.Implementations
     public class FormatValidator:IValidator
     {
         public string Message { get; set; } = "Invalid format";
-        public string Format { get; set; }
+        public string Format { get; set; } 
 
         public bool check(string value)
         {
@@ -18,6 +18,9 @@ namespace PriceChecker.Validation.Validators.Implementations
             {
                 return rgx.IsMatch(value);
             }
+
+
+           
 
             return false;
         }

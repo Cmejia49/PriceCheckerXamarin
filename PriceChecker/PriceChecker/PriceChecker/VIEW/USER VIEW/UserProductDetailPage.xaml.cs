@@ -16,7 +16,7 @@ namespace PriceChecker.VIEW.USER_VIEW
 		public UserProductDetailPage(int selectedProductID)
 		{
 			InitializeComponent();
-            BindingContext = new UserProductDetailViewModel(selectedProductID);
+            BindingContext = new UserProductDetailViewModel(Navigation,selectedProductID);
         }
 	}
 }

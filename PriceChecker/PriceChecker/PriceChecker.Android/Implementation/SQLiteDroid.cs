@@ -5,7 +5,7 @@ using PriceChecker.Droid.Implementation;
 using System;
 
 [assembly: Xamarin.Forms.Dependency(typeof(SQLiteDroid))]
-
+    
 namespace PriceChecker.Droid.Implementation
 {
     public class SQLiteDroid : ISQLite
@@ -13,9 +13,11 @@ namespace PriceChecker.Droid.Implementation
         public SQLiteConnection GetConnection()
         {
             var dbase = "ProductDataBase";
-            var dbpath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments);
+            var dbpath = FileAccessHelper.GetLocalFilePath("ProductDataBase.db");
             var path = Path.Combine(dbpath, dbase);
-            var connection = new SQLiteConnection(path);
+            var connection = new SQLiteConnection(dbpath);
+
+         
             return connection;
         }
     }

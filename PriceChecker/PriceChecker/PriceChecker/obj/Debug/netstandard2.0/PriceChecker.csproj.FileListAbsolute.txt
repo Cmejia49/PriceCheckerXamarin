@@ -5,11 +5,13 @@ D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\bin\Debug\net
 D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\bin\Debug\netstandard2.0\Mono.Android.pdb
 D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\bin\Debug\netstandard2.0\Mono.Android.xml
 D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\obj\Debug\netstandard2.0\VIEW\ADMIN VIEW\AdminPage.xaml.g.cs
+D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\obj\Debug\netstandard2.0\VIEW\ADMIN VIEW\BarCodeGeneratorPage.xaml.g.cs
 D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\obj\Debug\netstandard2.0\VIEW\ADMIN VIEW\NewProduct.xaml.g.cs
 D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\obj\Debug\netstandard2.0\VIEW\ADMIN VIEW\ProductDetailPage.xaml.g.cs
 D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\obj\Debug\netstandard2.0\VIEW\ADMIN VIEW\ProductView.xaml.g.cs
 D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\obj\Debug\netstandard2.0\VIEW\App.xaml.g.cs
 D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\obj\Debug\netstandard2.0\VIEW\FrontPage.xaml.g.cs
+D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\obj\Debug\netstandard2.0\VIEW\LogInPage.xaml.g.cs
 D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\obj\Debug\netstandard2.0\VIEW\USER VIEW\BarCodePageScan.xaml.g.cs
 D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\obj\Debug\netstandard2.0\VIEW\USER VIEW\UserPage.xaml.g.cs
 D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\obj\Debug\netstandard2.0\VIEW\USER VIEW\UserProductDetailPage.xaml.g.cs
@@ -21,3 +23,4 @@ D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\obj\Debug\net
 D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\obj\Debug\netstandard2.0\PriceChecker.csproj.CopyComplete
 D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\obj\Debug\netstandard2.0\PriceChecker.dll
 D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\obj\Debug\netstandard2.0\PriceChecker.pdb
+D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\obj\Debug\netstandard2.0\PriceChecker.csprojAssemblyReference.cache

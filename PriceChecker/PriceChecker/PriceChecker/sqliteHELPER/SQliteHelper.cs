@@ -11,7 +11,7 @@ namespace PriceChecker.sqliteHELPER
     {
 
         SQLiteConnection sqliteConnection;
-        public const string DbFileName = "product.db3";
+        public const string DbFileName = "ProductDataBase.db";
 
         public SQliteHelper()
         {
@@ -23,15 +23,25 @@ namespace PriceChecker.sqliteHELPER
         public List<ProductInfo> GetAllProductInfos()
         {
             return (from data in sqliteConnection.Table<ProductInfo>()
-                    select data).ToList();
+                    select data).Distinct(new ARealmClassKeyStringComparer()).ToList();
         }
         // Search Product
         public List<ProductInfo> FindProductInfos(string productName)
         {
-            return ( from s in sqliteConnection.Table<ProductInfo>()
-                        where s.ProductName.StartsWith(productName)
-                        select s).ToList();
+
+            return (from s in sqliteConnection.Table<ProductInfo>() 
+                    where s.ProductName.StartsWith(productName)
+                    orderby s.ProductName
+                    select s).ToList();
         
+        }
+      
+        public List<ProductInfo> CheckProductDuplicateInsert(string productName)
+        {
+            return (from s in sqliteConnection.Table<ProductInfo>()
+                    where s.ProductName.Equals(productName)
+                    select s).ToList();
+
         }
 
         public ProductInfo GetProductData(int id)
@@ -46,7 +56,7 @@ namespace PriceChecker.sqliteHELPER
         }
 
         public void DeleteProduct(int productID)
-        {
+        {   
             sqliteConnection.Delete<ProductInfo>(productID);
         }
         public void UpdateProduct(ProductInfo product)
