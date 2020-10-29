@@ -5,7 +5,8 @@
              xmlns:Validators="clr-namespace:PriceChecker.Validation.Validators.Implementations"
              x:Class="PriceChecker.VIEW.ADMIN_VIEW.ProductView" x:Name="UC">
     <StackLayout Padding="10,10" >
-            <Entry Text="{Binding ProductCode, Mode=TwoWay}" Style="{StaticResource DetailEntry}"  Placeholder="Product Code">
+        <Image Source="{Binding ImageSource}" WidthRequest="200" HeightRequest="200" Aspect="AspectFill" />
+        <Entry Text="{Binding ProductCode, Mode=TwoWay}" Style="{StaticResource DetailEntry}"  Placeholder="Product Code">
                 <Entry.Behaviors>
                     <Behaviors:ValidationBehavior  PropertyName="Text">
                         <Behaviors:ValidationBehavior.Validators>
@@ -17,7 +18,23 @@
                     </Behaviors:ValidationBehavior>
                 </Entry.Behaviors>
             </Entry>
-            <Entry  Text="{Binding ProductName, Mode=TwoWay}"  Style="{StaticResource DetailEntry}"  IsReadOnly="{Binding IsEditable}" Placeholder="Product Name">
+        <Picker Title="Category"
+                TitleColor="Blue"
+                SelectedItem="{Binding ProductCategory, Mode=TwoWay}">
+            <Picker.Items>
+                <x:String>Cookingware</x:String>
+                <x:String>Laundry Equipment</x:String>
+                <x:String>Cleaning Equipment</x:String>
+                <x:String>Storage</x:String>
+                <x:String>Plastic Furniture</x:String>
+                <x:String>Bathroom</x:String>
+                <x:String>Gardening</x:String>
+                <x:String>Diningware</x:String>
+                <x:String>Electric Appliances</x:String>
+                <x:String>other</x:String>
+            </Picker.Items>
+        </Picker>
+        <Entry  Text="{Binding ProductName, Mode=TwoWay}"  Style="{StaticResource DetailEntry}"  IsReadOnly="{Binding IsEditable}" Placeholder="Product Name">
                 <Entry.Behaviors>
                     <Behaviors:ValidationBehavior PropertyName="Text"  >
                         <Behaviors:ValidationBehavior.Validators>
@@ -27,14 +44,15 @@
                     </Behaviors:ValidationBehavior>
                 </Entry.Behaviors>
             </Entry>
-            <Entry Text="{Binding ProductPrice, Mode=TwoWay}"  Style="{StaticResource DetailEntry}" Placeholder="Product Price" Keyboard="Numeric">
-                <Entry.Behaviors>
-                    <Behaviors:ValidationBehavior PropertyName="Text">
-                        <Behaviors:ValidationBehavior.Validators>
-                            <Validators:RequiredValidator />
-                        </Behaviors:ValidationBehavior.Validators>
-                    </Behaviors:ValidationBehavior>
-                </Entry.Behaviors>
-            </Entry>
-        </StackLayout>
+        <Entry Text="{Binding ProductPrice, Mode=TwoWay}"  Style="{StaticResource DetailEntry}" Placeholder="Product Price" Keyboard="Numeric">
+            <Entry.Behaviors>
+                <Behaviors:ValidationBehavior PropertyName="Text">
+                    <Behaviors:ValidationBehavior.Validators>
+                        <Validators:RequiredValidator />
+                    </Behaviors:ValidationBehavior.Validators>
+                </Behaviors:ValidationBehavior>
+            </Entry.Behaviors>
+        </Entry>
+
+    </StackLayout>
 </ContentView>

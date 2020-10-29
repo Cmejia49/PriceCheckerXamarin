@@ -1,8 +1,10 @@
 ﻿using SQLite;
 using System;
+using System.Collections.Generic;
 
 namespace PriceChecker.MODEL
 {
+  
     [System.ComponentModel.DataAnnotations.Schema.Table("ProductInfo")]
     public class ProductInfo
     {
@@ -11,6 +13,9 @@ namespace PriceChecker.MODEL
 
         [Column("ProductCode")]
         public string ProductCode { get; set; }
+
+        [Column("ProductCategory")]
+        public string ProductCategory { get; set; }
 
         [Column("ProductName")]
         public string ProductName { get; set; }
@@ -21,4 +26,12 @@ namespace PriceChecker.MODEL
 
       
     }
+
+   
+     
+
 }
+
+
+    
+

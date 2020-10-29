@@ -14,7 +14,11 @@ namespace PriceChecker.VIEWMODEL.USER_VIEWMODEL
    public class UserProductDetailViewModel:BaseProductViewModel
     {
 
+#pragma warning disable IDE1006 // Naming Styles
+#pragma warning disable CA1707 // Identifiers should not contain underscores
         public ICommand _codeConverter { get; private set; }
+#pragma warning restore CA1707 // Identifiers should not contain underscores
+#pragma warning restore IDE1006 // Naming Styles
 
         public UserProductDetailViewModel(INavigation navigation, int selectedProductID)
         {
@@ -53,7 +57,9 @@ namespace PriceChecker.VIEWMODEL.USER_VIEWMODEL
                     if(arrayProductCode[i] == code[j] )
                     {
 
+#pragma warning disable CA1305 // Specify IFormatProvider
                         LblConverCode += j.ToString();
+#pragma warning restore CA1305 // Specify IFormatProvider
 
                     }
                 }   

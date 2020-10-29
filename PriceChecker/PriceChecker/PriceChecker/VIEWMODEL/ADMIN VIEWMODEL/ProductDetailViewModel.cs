@@ -30,7 +30,9 @@ namespace PriceChecker.VIEWMODEL.ADMIN_VIEWMODEL
             UpdateProductCommand = new Xamarin.Forms.Command(
                 execute: async () => {
                     PropertyChanged -= OnPersonEditPropertyChanged;
+#pragma warning disable CA2007 // Consider calling ConfigureAwait on the awaited task
                     await UpdateCommand();
+#pragma warning restore CA2007 // Consider calling ConfigureAwait on the awaited task
                 }, 
                 canExecute: () =>
                 {
@@ -43,8 +45,12 @@ namespace PriceChecker.VIEWMODEL.ADMIN_VIEWMODEL
                                  rgx.IsMatch(ProductCode);
 
                 });
+#pragma warning disable CA2007 // Consider calling ConfigureAwait on the awaited task
             DeleteProductCommand = new Command(async () => await DeleteCommand());
+#pragma warning restore CA2007 // Consider calling ConfigureAwait on the awaited task
+#pragma warning disable CA2007 // Consider calling ConfigureAwait on the awaited task
             BarCodeGeneratorCommand = new Command(async () => await ShowBarCodeGenerator());
+#pragma warning restore CA2007 // Consider calling ConfigureAwait on the awaited task
             GetProductData();
         }
 
@@ -55,18 +61,24 @@ namespace PriceChecker.VIEWMODEL.ADMIN_VIEWMODEL
         async Task UpdateCommand()
         {
             ProductRepository.UpdateProduct(_ProductInfo);
+#pragma warning disable CA2007 // Consider calling ConfigureAwait on the awaited task
             await _Navigation.PopAsync();
+#pragma warning restore CA2007 // Consider calling ConfigureAwait on the awaited task
         }
         async Task DeleteCommand()
         {
             PropertyChanged -= OnPersonEditPropertyChanged;
             ProductRepository.DeleteProduct(_ProductInfo.ProductID);
+#pragma warning disable CA2007 // Consider calling ConfigureAwait on the awaited task
             await _Navigation.PopAsync();
+#pragma warning restore CA2007 // Consider calling ConfigureAwait on the awaited task
         }
 
         async Task ShowBarCodeGenerator()
         {
+#pragma warning disable CA2007 // Consider calling ConfigureAwait on the awaited task
             await _Navigation.PushAsync(new BarCodeGeneratorPage(_ProductInfo.ProductID, IsEditable));
+#pragma warning restore CA2007 // Consider calling ConfigureAwait on the awaited task
         }
 
         void OnPersonEditPropertyChanged(object sender, PropertyChangedEventArgs args)

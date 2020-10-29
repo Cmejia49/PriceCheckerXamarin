@@ -24,9 +24,9 @@
         <ResourceDictionary>
             <Style x:Key="AdminBtn" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="#e8c433"  />
-                <Setter Property="WidthRequest" Value="80"     />
-                <Setter Property="HeightRequest" Value="80"/>
-                <Setter Property="BorderRadius" Value="40"/>
+                <Setter Property="WidthRequest" Value="100"     />
+                <Setter Property="HeightRequest" Value="100"/>
+                <Setter Property="BorderRadius" Value="50"/>
                 <Setter Property="HorizontalOptions" Value="Center"/>
                 <Setter Property="VerticalOptions" Value="Center"/>
                 <Setter Property="BorderColor" Value="DarkBlue"/>
@@ -35,9 +35,9 @@
             </Style>
             <Style x:Key="UserBtn" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="#e8c433"  />
-                <Setter Property="WidthRequest" Value="80"     />
-                <Setter Property="HeightRequest" Value="80"/>
-                <Setter Property="BorderRadius" Value="40"/>
+                <Setter Property="WidthRequest" Value="100"     />
+                <Setter Property="HeightRequest" Value="100"/>
+                <Setter Property="BorderRadius" Value="50"/>
                 <Setter Property="HorizontalOptions" Value="Center"/>
                 <Setter Property="VerticalOptions" Value="Center"/>
                 <Setter Property="BorderColor" Value="DarkBlue"/>
@@ -72,9 +72,10 @@
             <!-- Implicit styles -->
             <Style TargetType="{x:Type NavigationPage}">
                 <Setter Property="BarBackgroundColor"
-                    Value="{StaticResource NavigationBarColor}" />
+                    Value="{StaticResource NavigationBarColor}"/>
                 <Setter Property="BarTextColor"
-                    Value="{StaticResource NavigationBarTextColor}" />
+                    Value="{StaticResource NavigationBarTextColor}"/>
+
             </Style>
         </ResourceDictionary>
     </Application.Resources>

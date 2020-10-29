@@ -9,7 +9,7 @@ namespace PriceChecker.sqliteHELPER
     {
         public bool Equals(ProductInfo x, ProductInfo y)
         {
-            return (x.ProductName == y.ProductName);
+            return x.ProductName == y.ProductName;
         }
 
         public int GetHashCode(ProductInfo obj)

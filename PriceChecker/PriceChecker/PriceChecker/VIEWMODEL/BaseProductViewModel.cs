@@ -13,12 +13,24 @@ namespace PriceChecker.VIEWMODEL
     public class BaseProductViewModel : INotifyPropertyChanged 
     {
 
+#pragma warning disable CA1051 // Do not declare visible instance fields
         public ProductInfo _ProductInfo;
+  
+#pragma warning restore CA1051 // Do not declare visible instance fields
+#pragma warning disable CA1051 // Do not declare visible instance fields
         public INavigation _Navigation;
+#pragma warning restore CA1051 // Do not declare visible instance fields
+#pragma warning disable CA1051 // Do not declare visible instance fields
         public IProductRepository _IProductRepositoty;
+#pragma warning restore CA1051 // Do not declare visible instance fields
+#pragma warning disable CA1051 // Do not declare visible instance fields
         public NewProductViewModel _NewProductViewModel;
+#pragma warning restore CA1051 // Do not declare visible instance fields
+#pragma warning disable CA1051 // Do not declare visible instance fields
         public ProductDetailViewModel _ProductDetailViewModel;
-      
+#pragma warning restore CA1051 // Do not declare visible instance fields
+ 
+
         public int ProductID
         {
             get => _ProductInfo.ProductID;
@@ -26,26 +38,45 @@ namespace PriceChecker.VIEWMODEL
             {
 
                 _ProductInfo.ProductID = value;
-                OnpropertyChanged("ProductID");
+                OnpropertyChanged(nameof(ProductID));
             }
         }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Globalization", "CA1304:Specify CultureInfo", Justification = "<Pending>")]
         public string ProductCode
         {
             get => _ProductInfo.ProductCode;
             set
-            {  
-                    _ProductInfo.ProductCode = value.ToUpper();
-                    OnpropertyChanged("ProductCode");
+            {
+#pragma warning disable CA1062 // Validate arguments of public methods
+                _ProductInfo.ProductCode = value.ToUpper();
+#pragma warning restore CA1062 // Validate arguments of public methods
+                OnpropertyChanged(nameof(ProductCode));
             }
         }
 
+       
+       public string ProductCategory
+        {
+            get => _ProductInfo.ProductCategory;
+            set
+            {
+                _ProductInfo.ProductCategory = value;
+                OnpropertyChanged(nameof(ProductCategory));
+            }
+        }
+      
         public string ProductName
         {
             get => _ProductInfo.ProductName;
             set
             {
+#pragma warning disable CA1062 // Validate arguments of public methods
+#pragma warning disable CA1304 // Specify CultureInfo
                 _ProductInfo.ProductName = value.ToUpper();
-                OnpropertyChanged("ProductName");
+#pragma warning restore CA1304 // Specify CultureInfo
+#pragma warning restore CA1062 // Validate arguments of public methods
+                OnpropertyChanged(nameof(ProductName));
             }
         }
         public string ProductPrice
@@ -54,22 +85,28 @@ namespace PriceChecker.VIEWMODEL
             set
             {
                 _ProductInfo.ProductPrice = value;
-                OnpropertyChanged("ProductPrice");
+                OnpropertyChanged(nameof(ProductPrice));
             }
         }
         List<ProductInfo> _ProductList;
+#pragma warning disable CA2227 // Collection properties should be read only
         public List<ProductInfo> ProductList
+#pragma warning restore CA2227 // Collection properties should be read only
         {
             get => _ProductList;
             set
             {
                 _ProductList = value;
-                OnpropertyChanged("ProductList");
+                OnpropertyChanged(nameof(ProductList));
             }
         }
 
         //Search property
+#pragma warning disable IDE1006 // Naming Styles
+#pragma warning disable CA1707 // Identifiers should not contain underscores
         public string _SearchText { get; set; }
+#pragma warning restore CA1707 // Identifiers should not contain underscores
+#pragma warning restore IDE1006 // Naming Styles
         public string SearchText
         {
             get { return _SearchText; }
@@ -77,29 +114,33 @@ namespace PriceChecker.VIEWMODEL
             {
                 _SearchText = value;
 
-                OnpropertyChanged("SearchText");
+                OnpropertyChanged(nameof(SearchText));
                 
             }
         }
+#pragma warning disable IDE1006 // Naming Styles
         public string lblConvertCode { get; set; }
+#pragma warning restore IDE1006 // Naming Styles
         public string LblConverCode
         {
             get => lblConvertCode;
             set
             {
                 lblConvertCode = value;
-                OnpropertyChanged("LblConverCode");
+                OnpropertyChanged(nameof(LblConverCode));
             }
         }
 
+#pragma warning disable IDE1006 // Naming Styles
         public bool isEditable { get; set; }
+#pragma warning restore IDE1006 // Naming Styles
         public bool IsEditable
         {
             get => isEditable;
             set
             {
                 isEditable = value;
-                OnpropertyChanged("IsEditable");
+                OnpropertyChanged(nameof(IsEditable));
             }
         }
 

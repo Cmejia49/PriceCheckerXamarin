@@ -21,14 +21,24 @@ namespace PriceChecker.VIEWMODEL.USER_VIEWMODEL
       
 
 
+#pragma warning disable IDE1006 // Naming Styles
+#pragma warning disable CA1707 // Identifiers should not contain underscores
         public ICommand _ShowScanPage { get; set; }
+#pragma warning restore CA1707 // Identifiers should not contain underscores
+#pragma warning restore IDE1006 // Naming Styles
+#pragma warning disable IDE1006 // Naming Styles
+#pragma warning disable CA1707 // Identifiers should not contain underscores
         public ICommand _SearchProduct { get; private set; }
+#pragma warning restore CA1707 // Identifiers should not contain underscores
+#pragma warning restore IDE1006 // Naming Styles
        
 
         public UserPageViewModel(INavigation navigation,string searchString)
         {
             _Navigation = navigation;
+#pragma warning disable CA2007 // Consider calling ConfigureAwait on the awaited task
             _ShowScanPage = new Xamarin.Forms.Command(async () => await ShowScanPage());
+#pragma warning restore CA2007 // Consider calling ConfigureAwait on the awaited task
             _SearchProduct = new Xamarin.Forms.Command(this.PerformSearch);
             _ProductInfo = new ProductInfo();
             ProductRepository = new ProductRepository();
@@ -47,11 +57,15 @@ namespace PriceChecker.VIEWMODEL.USER_VIEWMODEL
 
         public async Task ShowScanPage()
         {
+#pragma warning disable CA2007 // Consider calling ConfigureAwait on the awaited task
             await _Navigation.PushAsync(new BarCodePageScan());
+#pragma warning restore CA2007 // Consider calling ConfigureAwait on the awaited task
         }
         async void ShowProductDetail(int selectedProductID)
         {
+#pragma warning disable CA2007 // Consider calling ConfigureAwait on the awaited task
             await _Navigation.PushAsync(new UserProductDetailPage(selectedProductID));
+#pragma warning restore CA2007 // Consider calling ConfigureAwait on the awaited task
         }
 
         ProductInfo _SelectedProductID;
@@ -67,7 +81,7 @@ namespace PriceChecker.VIEWMODEL.USER_VIEWMODEL
                 if (value != null)
                 {
                     _SelectedProductID = value;
-                    OnpropertyChanged("SelectedProductID");
+                    OnpropertyChanged(nameof(SelectedProductID));
                     ShowProductDetail(_SelectedProductID.ProductID);
                 }
             }

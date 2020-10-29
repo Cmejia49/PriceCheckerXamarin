@@ -17,6 +17,7 @@ namespace PriceChecker.VIEW.USER_VIEW
 			InitializeComponent ();
             BindingContext = new UserPageViewModel(Navigation, SearchString);
         }
-       
-    }
+
+	
+	}
 }

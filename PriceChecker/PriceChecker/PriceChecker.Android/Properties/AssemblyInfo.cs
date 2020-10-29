@@ -3,6 +3,8 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using Android.App;
 
+[assembly: UsesFeature("android.hardware.camera", Required = true)]
+[assembly: UsesFeature("android.hardware.camera.autofocus", Required = true)]
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.

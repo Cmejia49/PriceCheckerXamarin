@@ -11,11 +11,11 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("PriceChecker")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("Tophe")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
-[assembly: System.Reflection.AssemblyProductAttribute("PriceChecker")]
+[assembly: System.Reflection.AssemblyProductAttribute("PriceCheck")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PriceChecker")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 

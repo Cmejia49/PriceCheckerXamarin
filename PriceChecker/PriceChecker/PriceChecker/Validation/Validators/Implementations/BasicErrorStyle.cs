@@ -11,7 +11,9 @@ namespace PriceChecker.Validation.Validators.Implementations
 
         public void RemoveError(View view)
         {
+#pragma warning disable CA1062 // Validate arguments of public methods
             StackLayout layout = view.Parent as StackLayout;
+#pragma warning restore CA1062 // Validate arguments of public methods
             int viewIndex = layout.Children.IndexOf(view);
 
             if (viewIndex + 1 < layout.Children.Count)
@@ -27,7 +29,9 @@ namespace PriceChecker.Validation.Validators.Implementations
         }
         public void ShowError(View view, string message)
         {
+#pragma warning disable CA1062 // Validate arguments of public methods
             StackLayout layout = view.Parent as StackLayout;
+#pragma warning restore CA1062 // Validate arguments of public methods
             int viewIndex = layout.Children.IndexOf(view);
 
             if (viewIndex + 1 < layout.Children.Count)

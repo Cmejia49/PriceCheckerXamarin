@@ -10,7 +10,9 @@ using PriceChecker.VIEW.ADMIN_VIEW;
 using PriceChecker.MODEL;
 using System.ComponentModel;
 
+#pragma warning disable CA1707 // Identifiers should not contain underscores
 namespace PriceChecker.VIEWMODEL.ADMIN_VIEWMODEL
+#pragma warning restore CA1707 // Identifiers should not contain underscores
 {
    public class AdminPageViewModel:BaseProductViewModel
     {
@@ -20,8 +22,16 @@ namespace PriceChecker.VIEWMODEL.ADMIN_VIEWMODEL
         private List<ProductInfo> _ItemsUnfiltered;
 
 
+#pragma warning disable CA1707 // Identifiers should not contain underscores
+#pragma warning disable IDE1006 // Naming Styles
         public ICommand _ShowNewProductPage { get; set; }
+#pragma warning restore IDE1006 // Naming Styles
+#pragma warning restore CA1707 // Identifiers should not contain underscores
+#pragma warning disable IDE1006 // Naming Styles
+#pragma warning disable CA1707 // Identifiers should not contain underscores
         public ICommand _SearchProduct { get; private set; }
+#pragma warning restore CA1707 // Identifiers should not contain underscores
+#pragma warning restore IDE1006 // Naming Styles
         public AdminPageViewModel(INavigation navigation)
         {
 
@@ -37,7 +47,9 @@ namespace PriceChecker.VIEWMODEL.ADMIN_VIEWMODEL
             _ShowNewProductPage = new Xamarin.Forms.Command(
                 execute: async () =>
                 {
+#pragma warning disable CA2007 // Consider calling ConfigureAwait on the awaited task
                     await ShowNewProductPage();
+#pragma warning restore CA2007 // Consider calling ConfigureAwait on the awaited task
                 });
          
             ProductRepository = new ProductRepository();
@@ -53,13 +65,18 @@ namespace PriceChecker.VIEWMODEL.ADMIN_VIEWMODEL
 
         public async Task ShowNewProductPage()
         {
+
             IsEditable = false;
+#pragma warning disable CA2007 // Consider calling ConfigureAwait on the awaited task
             await _Navigation.PushAsync(new NewProduct(IsEditable));
+#pragma warning restore CA2007 // Consider calling ConfigureAwait on the awaited task
         }
         async void ShowProductDetail(int selectedProductID)
         {
             IsEditable = true;
+#pragma warning disable CA2007 // Consider calling ConfigureAwait on the awaited task
             await _Navigation.PushAsync(new ProductDetailPage(selectedProductID, IsEditable));
+#pragma warning restore CA2007 // Consider calling ConfigureAwait on the awaited task
         }
 
         ProductInfo _SelectedProductID;
@@ -76,7 +93,7 @@ namespace PriceChecker.VIEWMODEL.ADMIN_VIEWMODEL
                 {
                     _SelectedProductID = value;
                  
-                    OnpropertyChanged("SelectedProductID");
+                    OnpropertyChanged(nameof(SelectedProductID));
                     ShowProductDetail(_SelectedProductID.ProductID);
                 }
             }

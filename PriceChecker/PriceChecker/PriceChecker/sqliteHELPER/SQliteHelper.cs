@@ -19,6 +19,11 @@ namespace PriceChecker.sqliteHELPER
             sqliteConnection.CreateTable<ProductInfo>();
         }
 
+        public SQliteHelper(SQLiteConnection sqliteConnection)
+        {
+            this.sqliteConnection = sqliteConnection;
+        }
+
         // Get All Contact data      
         public List<ProductInfo> GetAllProductInfos()
         {
@@ -28,20 +33,23 @@ namespace PriceChecker.sqliteHELPER
         // Search Product
         public List<ProductInfo> FindProductInfos(string productName)
         {
-
+            
+            StringComparison comparison = StringComparison.CurrentCultureIgnoreCase;
             return (from s in sqliteConnection.Table<ProductInfo>() 
-                    where s.ProductName.StartsWith(productName)
+                    where s.ProductName.StartsWith(productName,comparison) 
                     orderby s.ProductName
                     select s).ToList();
         
         }
-      
+
         public List<ProductInfo> CheckProductDuplicateInsert(string productName)
         {
+          
             return (from s in sqliteConnection.Table<ProductInfo>()
-                    where s.ProductName.Equals(productName)
+#pragma warning disable CA1307 // Specify StringComparison
+                    where s.ProductName.Contains(productName) 
+#pragma warning restore CA1307 // Specify StringComparison
                     select s).ToList();
-
         }
 
         public ProductInfo GetProductData(int id)

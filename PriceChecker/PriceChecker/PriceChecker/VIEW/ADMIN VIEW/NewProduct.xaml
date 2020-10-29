@@ -7,6 +7,8 @@
              xmlns:view ="clr-namespace:PriceChecker.VIEW.ADMIN_VIEW">
     <StackLayout Padding="10,10,10,10">
         <view:ProductView></view:ProductView>
-        <Button Command="{Binding AddProductCommand}" Text="Submit" BackgroundColor="#e8c433"/>
+
+        <Button  Command="{Binding TakePhotos}" Text="Take Photo" />
+            <Button Command="{Binding AddProductCommand}" Text="Submit" BackgroundColor="#e8c433"/>
     </StackLayout>
 </ContentPage>

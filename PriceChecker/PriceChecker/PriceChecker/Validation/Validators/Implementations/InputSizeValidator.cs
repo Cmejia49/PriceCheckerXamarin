@@ -11,7 +11,9 @@ namespace PriceChecker.Validation.Validators.Implementations
 
         public bool check(string value)
         {
+#pragma warning disable CA1062 // Validate arguments of public methods
             return value.Length >= 3 && value.Length <= 12;
+#pragma warning restore CA1062 // Validate arguments of public methods
         }
     }
 }

@@ -16,12 +16,24 @@ namespace PriceChecker.VIEWMODEL
 {
     public class AdminViewModel: INotifyPropertyChanged
     {
+#pragma warning disable CA1051 // Do not declare visible instance fields
         public INavigation _Navigation;
+#pragma warning restore CA1051 // Do not declare visible instance fields
+#pragma warning disable IDE1006 // Naming Styles
         private string userName { get; set; }
+#pragma warning restore IDE1006 // Naming Styles
+#pragma warning disable IDE1006 // Naming Styles
         private string passWord { get; set; }
+#pragma warning restore IDE1006 // Naming Styles
+#pragma warning disable IDE1006 // Naming Styles
         private string errorMessage { get; set; }
+#pragma warning restore IDE1006 // Naming Styles
 
+#pragma warning disable IDE1006 // Naming Styles
+#pragma warning disable CA1707 // Identifiers should not contain underscores
         public ICommand _logInCommand { get; private set; }
+#pragma warning restore CA1707 // Identifiers should not contain underscores
+#pragma warning restore IDE1006 // Naming Styles
         ProductRepository productRepository = new ProductRepository();
         public AdminViewModel(INavigation navigation)
         {
@@ -31,7 +43,9 @@ namespace PriceChecker.VIEWMODEL
             _logInCommand = new Xamarin.Forms.Command(
                 execute: async () =>
                 {
+#pragma warning disable CA2007 // Consider calling ConfigureAwait on the awaited task
                     await LogIn();
+#pragma warning restore CA2007 // Consider calling ConfigureAwait on the awaited task
                 });
         }
 
@@ -44,7 +58,7 @@ namespace PriceChecker.VIEWMODEL
             set
             {
                 userName = value;
-                OnpropertyChanged("UserName");
+                OnpropertyChanged(nameof(UserName));
             }
         }
 
@@ -58,7 +72,7 @@ namespace PriceChecker.VIEWMODEL
             set
             {
                 passWord = value;
-                OnpropertyChanged("PassWord");
+                OnpropertyChanged(nameof(PassWord));
             }
         }
 
@@ -71,7 +85,7 @@ namespace PriceChecker.VIEWMODEL
             set
             {
                 errorMessage = value;
-                OnpropertyChanged("ErrorMessage");
+                OnpropertyChanged(nameof(ErrorMessage));
             }
         }
 
@@ -82,14 +96,22 @@ namespace PriceChecker.VIEWMODEL
             {
                 if (GetCountDB.Count > 0)
                 {
+#pragma warning disable CA2007 // Consider calling ConfigureAwait on the awaited task
                     await _Navigation.PushAsync(new AdminPage());
+#pragma warning restore CA2007 // Consider calling ConfigureAwait on the awaited task
+#pragma warning disable CA2007 // Consider calling ConfigureAwait on the awaited task
                     await PopupNavigation.Instance.PopAsync(true);
+#pragma warning restore CA2007 // Consider calling ConfigureAwait on the awaited task
                     RefreshCanExecutes();
                 }
                 else
                 {
+#pragma warning disable CA2007 // Consider calling ConfigureAwait on the awaited task
                     await _Navigation.PushAsync(new NewProduct(false));
+#pragma warning restore CA2007 // Consider calling ConfigureAwait on the awaited task
+#pragma warning disable CA2007 // Consider calling ConfigureAwait on the awaited task
                     await PopupNavigation.Instance.PopAsync(true);
+#pragma warning restore CA2007 // Consider calling ConfigureAwait on the awaited task
                 }
             
             }

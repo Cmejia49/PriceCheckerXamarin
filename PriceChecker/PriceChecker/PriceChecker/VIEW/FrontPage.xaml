@@ -2,30 +2,34 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PriceChecker.VIEW.FrontPage"
-    NavigationPage.HasNavigationBar="False"
+    NavigationPage.HasNavigationBar="True"
              BackgroundColor="WhiteSmoke">
+    
+    <StackLayout >
+        
+     
+        <ScrollView>
+            <Grid>
+                
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
 
-    <StackLayout>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"  />
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
-
-            </Grid.ColumnDefinitions>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="10"/>
+                </Grid.ColumnDefinitions>
 
 
-            <Button Command="{Binding _ShowAdminPage}" Style="{StaticResource AdminBtn}" Grid.Row="1" Grid.Column="0"/>
+                <Button Command="{Binding _ShowAdminPage}" Style="{StaticResource AdminBtn}" Grid.Row="1" Grid.Column="1"/>
+                <Button Command="{Binding _ShowUserPage}" Style="{StaticResource UserBtn}" Grid.Row="1" Grid.Column="2" />
+                <Label Text="Admin" HorizontalTextAlignment="Center" Grid.Row="2" Grid.Column="1"/>
+                <Label Text="User"  HorizontalTextAlignment="Center" Grid.Row="2" Grid.Column="2"/>
 
-
-            <Button Command="{Binding _ShowUserPage}" Style="{StaticResource UserBtn}" Grid.Row="1" Grid.Column="2" />
-            <Label Text="Admin" HorizontalTextAlignment="Center" Grid.Row="2" Grid.Column="0"/>
-            <Label Text="User"  HorizontalTextAlignment="Center" Grid.Row="2" Grid.Column="2"/>
-
-        </Grid>
-    </StackLayout>
+            </Grid>
+            </ScrollView>
+        </StackLayout>
 </ContentPage>

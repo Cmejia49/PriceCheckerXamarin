@@ -17,8 +17,8 @@ namespace PriceChecker.VIEW.ADMIN_VIEW
 		{
 			InitializeComponent ();
             this.BindingContext = new NewProductViewModel(Navigation,iseditable);
-        //    this.BindingContext = new ValidationCommand();
-
-        }
-    }
+	
+     
+}
+ }
 }
