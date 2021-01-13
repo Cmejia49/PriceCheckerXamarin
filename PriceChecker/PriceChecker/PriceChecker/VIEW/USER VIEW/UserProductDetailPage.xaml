@@ -1,11 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<PriceChecker:CustomContentPage  
+             xmlns:PriceChecker="clr-namespace:PriceChecker.VIEW.Custom" 
+               xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                xmlns:local="clr-namespace:PriceChecker.VIEW.USER_VIEW"
-             x:Class="PriceChecker.VIEW.USER_VIEW.UserProductDetailPage">
+             x:Class="PriceChecker.VIEW.USER_VIEW.UserProductDetailPage"
+    EnableBackButtonOverride="False">
     <StackLayout Padding="20" Spacing="20">
         <local:UserProductView></local:UserProductView>
-        <Button Text="Convert Code"  Style="{StaticResource btnconverter}" Command="{Binding _codeConverter }" />
+        <Button Text="Convert Code"  Style="{StaticResource btnconverter}" Command="{Binding CodeConverterCommand }" />
         <Label Text="{Binding LblConverCode}" HorizontalOptions="Center" TextColor="Black"/>
     </StackLayout>
-</ContentPage>
+</PriceChecker:CustomContentPage>

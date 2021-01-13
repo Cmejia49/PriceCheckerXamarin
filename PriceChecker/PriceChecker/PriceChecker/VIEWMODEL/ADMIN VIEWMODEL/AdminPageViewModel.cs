@@ -10,75 +10,48 @@ using PriceChecker.VIEW.ADMIN_VIEW;
 using PriceChecker.MODEL;
 using System.ComponentModel;
 
-#pragma warning disable CA1707 // Identifiers should not contain underscores
 namespace PriceChecker.VIEWMODEL.ADMIN_VIEWMODEL
-#pragma warning restore CA1707 // Identifiers should not contain underscores
+
 {
    public class AdminPageViewModel:BaseProductViewModel
     {
         private readonly int _selectedID;
         
-        private List<ProductInfo> _ItemsFiltered;
-        private List<ProductInfo> _ItemsUnfiltered;
+        private List<ProductInfo> ItemsFiltered;
+        private List<ProductInfo> ItemsUnfiltered;
+        public ICommand SearchProductCommand { get; private set; }
+        public ICommand ShowNewProductPageCommand { get; set; }
 
-
-#pragma warning disable CA1707 // Identifiers should not contain underscores
-#pragma warning disable IDE1006 // Naming Styles
-        public ICommand _ShowNewProductPage { get; set; }
-#pragma warning restore IDE1006 // Naming Styles
-#pragma warning restore CA1707 // Identifiers should not contain underscores
-#pragma warning disable IDE1006 // Naming Styles
-#pragma warning disable CA1707 // Identifiers should not contain underscores
-        public ICommand _SearchProduct { get; private set; }
-#pragma warning restore CA1707 // Identifiers should not contain underscores
-#pragma warning restore IDE1006 // Naming Styles
         public AdminPageViewModel(INavigation navigation)
         {
 
             PropertyChanged -= OnProductAddPropertyChanged;
             PropertyChanged -= OnProductUpdatePropertyChanged;
-            _NewProductViewModel = new NewProductViewModel(navigation,isEditable);
-            _ProductDetailViewModel = new ProductDetailViewModel(navigation, _selectedID,IsEditable);
-
-            _Navigation = navigation;
-
-            _SearchProduct = new Xamarin.Forms.Command(this.PerformSearch);
-
-            _ShowNewProductPage = new Xamarin.Forms.Command(
-                execute: async () =>
-                {
-#pragma warning disable CA2007 // Consider calling ConfigureAwait on the awaited task
-                    await ShowNewProductPage();
-#pragma warning restore CA2007 // Consider calling ConfigureAwait on the awaited task
-                });
-         
+            NewProductViewModel = new NewProductViewModel(navigation,IsEditable);
+            ProductDetailViewModel = new ProductDetailViewModel(navigation, _selectedID,IsEditable);
+            Navigation = navigation;
+            SearchProductCommand = new Xamarin.Forms.Command(this.PerformSearch);
+            ShowNewProductPageCommand = new Command(async () => await ShowNewProductPage().ConfigureAwait(false));
             ProductRepository = new ProductRepository();
-            _ProductInfo = new ProductInfo();
+            ProductInfo = new ProductInfo();
             GetProductData();
         }
-
         void GetProductData()
         {
             ProductList = ProductRepository.GetAllProductInfos();
-            _ItemsUnfiltered = new List<ProductInfo>(ProductList);
+            ItemsUnfiltered = new List<ProductInfo>(ProductList);
         }
-
-        public async Task ShowNewProductPage()
+        private async Task ShowNewProductPage()
         {
-
             IsEditable = false;
-#pragma warning disable CA2007 // Consider calling ConfigureAwait on the awaited task
-            await _Navigation.PushAsync(new NewProduct(IsEditable));
-#pragma warning restore CA2007 // Consider calling ConfigureAwait on the awaited task
+            await Navigation.PushAsync(new NewProduct(IsEditable));
         }
-        async void ShowProductDetail(int selectedProductID)
+        private async void ShowProductDetail(int selectedProductID)
         {
             IsEditable = true;
-#pragma warning disable CA2007 // Consider calling ConfigureAwait on the awaited task
-            await _Navigation.PushAsync(new ProductDetailPage(selectedProductID, IsEditable));
-#pragma warning restore CA2007 // Consider calling ConfigureAwait on the awaited task
-        }
+            await Navigation.PushAsync(new ProductDetailPage(selectedProductID, IsEditable));
 
+        }
         ProductInfo _SelectedProductID;
         public ProductInfo SelectedProductID
         {
@@ -93,7 +66,7 @@ namespace PriceChecker.VIEWMODEL.ADMIN_VIEWMODEL
                 {
                     _SelectedProductID = value;
                  
-                    OnpropertyChanged(nameof(SelectedProductID));
+                    OnPropertyChanged(nameof(SelectedProductID));
                     ShowProductDetail(_SelectedProductID.ProductID);
                 }
             }
@@ -101,28 +74,26 @@ namespace PriceChecker.VIEWMODEL.ADMIN_VIEWMODEL
 
         void RefreshCanExecutes()
         {
-            (_ShowNewProductPage as Command).ChangeCanExecute();
-            (_NewProductViewModel.AddProductCommand as Command).ChangeCanExecute();
+            (ShowNewProductPageCommand as Command).ChangeCanExecute();
+            (NewProductViewModel.AddProductCommand as Command).ChangeCanExecute();
         }
 
         void OnProductAddPropertyChanged(object sender, PropertyChangedEventArgs args)
         {
-            (_NewProductViewModel.AddProductCommand as Command).ChangeCanExecute();
+            (NewProductViewModel.AddProductCommand as Command).ChangeCanExecute();
         }
         void OnProductUpdatePropertyChanged(object sender, PropertyChangedEventArgs args)
         {
-            (_ProductDetailViewModel.UpdateProductCommand as Command).ChangeCanExecute();
+            (ProductDetailViewModel.UpdateProductCommand as Command).ChangeCanExecute();
         }
-
         public void PerformSearch()
         {
-            if (string.IsNullOrWhiteSpace(this._SearchText))
-                ProductList = _ItemsUnfiltered;
+            if (string.IsNullOrWhiteSpace(this.SearchText))
+                ProductList = ItemsUnfiltered;
             else
             {
-                _ItemsFiltered = ProductRepository.FindProductInfos(_SearchText);
-
-                ProductList = _ItemsFiltered;
+                ItemsFiltered = ProductRepository.FindProductInfos(SearchText);
+                ProductList = ItemsFiltered;
             }
         }
 

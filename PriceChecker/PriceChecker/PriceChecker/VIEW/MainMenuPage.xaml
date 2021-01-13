@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PriceChecker.VIEW.MainMenuPage"
+    NavigationPage.HasNavigationBar="True"
+             BackgroundColor="WhiteSmoke">
+    <StackLayout >
+        <Image Source="finals.png" HorizontalOptions="Center" WidthRequest="200" HeightRequest="200"/>
+        <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="10"/>
+                </Grid.ColumnDefinitions>
+                <Button Command="{Binding ShowAdminPageCommand}" Style="{StaticResource AdminBtn}" Grid.Row="1" Grid.Column="1"/>
+                <Button Command="{Binding ShowUserPageCommand}" Style="{StaticResource UserBtn}" Grid.Row="1" Grid.Column="2" />
+                <Label Text="Admin" HorizontalTextAlignment="Center" Grid.Row="2" Grid.Column="1"/>
+                <Label Text="User"  HorizontalTextAlignment="Center" Grid.Row="2" Grid.Column="2"/>
+            </Grid>
+    </StackLayout>
+</ContentPage>

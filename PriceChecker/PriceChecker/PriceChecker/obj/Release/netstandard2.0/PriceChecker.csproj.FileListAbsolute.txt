@@ -1,0 +1,25 @@
+D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\bin\Release\netstandard2.0\PriceChecker.deps.json
+D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\bin\Release\netstandard2.0\PriceChecker.dll
+D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\bin\Release\netstandard2.0\PriceChecker.pdb
+D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\bin\Release\netstandard2.0\Mono.Android.dll
+D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\bin\Release\netstandard2.0\Mono.Android.pdb
+D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\bin\Release\netstandard2.0\Mono.Android.xml
+D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\obj\Release\netstandard2.0\VIEW\ADMIN VIEW\AdminPage.xaml.g.cs
+D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\obj\Release\netstandard2.0\VIEW\ADMIN VIEW\BarCodeGeneratorPage.xaml.g.cs
+D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\obj\Release\netstandard2.0\VIEW\ADMIN VIEW\NewProduct.xaml.g.cs
+D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\obj\Release\netstandard2.0\VIEW\ADMIN VIEW\ProductDetailPage.xaml.g.cs
+D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\obj\Release\netstandard2.0\VIEW\ADMIN VIEW\ProductView.xaml.g.cs
+D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\obj\Release\netstandard2.0\VIEW\App.xaml.g.cs
+D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\obj\Release\netstandard2.0\VIEW\LogInPage.xaml.g.cs
+D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\obj\Release\netstandard2.0\VIEW\MainMenuPage.xaml.g.cs
+D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\obj\Release\netstandard2.0\VIEW\USER VIEW\BarCodePageScan.xaml.g.cs
+D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\obj\Release\netstandard2.0\VIEW\USER VIEW\UserPage.xaml.g.cs
+D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\obj\Release\netstandard2.0\VIEW\USER VIEW\UserProductDetailPage.xaml.g.cs
+D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\obj\Release\netstandard2.0\VIEW\USER VIEW\UserProductView.xaml.g.cs
+D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\obj\Release\netstandard2.0\PriceChecker.csproj.CoreCompileInputs.cache
+D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\obj\Release\netstandard2.0\PriceChecker.AssemblyInfoInputs.cache
+D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\obj\Release\netstandard2.0\PriceChecker.AssemblyInfo.cs
+D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\obj\Release\netstandard2.0\XamlC.stamp
+D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\obj\Release\netstandard2.0\PriceChecker.csproj.CopyComplete
+D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\obj\Release\netstandard2.0\PriceChecker.dll
+D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\obj\Release\netstandard2.0\PriceChecker.pdb

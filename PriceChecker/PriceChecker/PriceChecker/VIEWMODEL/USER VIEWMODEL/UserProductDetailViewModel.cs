@@ -4,6 +4,7 @@ using PriceChecker.VIEW.USER_VIEW;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -13,21 +14,15 @@ namespace PriceChecker.VIEWMODEL.USER_VIEWMODEL
 {
    public class UserProductDetailViewModel:BaseProductViewModel
     {
-
-#pragma warning disable IDE1006 // Naming Styles
-#pragma warning disable CA1707 // Identifiers should not contain underscores
-        public ICommand _codeConverter { get; private set; }
-#pragma warning restore CA1707 // Identifiers should not contain underscores
-#pragma warning restore IDE1006 // Naming Styles
-
+        public ICommand CodeConverterCommand { get; private set; }
         public UserProductDetailViewModel(INavigation navigation, int selectedProductID)
         {
             ProductRepository = new ProductRepository();
-            _ProductInfo = new ProductInfo();
-            _ProductInfo.ProductID = selectedProductID;
-            _Navigation = navigation;
+            ProductInfo = new ProductInfo();
+            ProductInfo.ProductID = selectedProductID;
+            Navigation = navigation;
 
-            _codeConverter = new Xamarin.Forms.Command(execute:  () =>
+            CodeConverterCommand = new Xamarin.Forms.Command(execute:  () =>
             {
                 PropertyChanged += OnCodeConverterPropertyChanged;
                  CodeConverter();
@@ -43,24 +38,20 @@ namespace PriceChecker.VIEWMODEL.USER_VIEWMODEL
 
         void FetchProductData()
         {
-            _ProductInfo = ProductRepository.GetProduct(_ProductInfo.ProductID);
+            ProductInfo = ProductRepository.GetProduct(ProductInfo.ProductID);
         }
 
         public void CodeConverter()
         {
             char[] code = new char[10] { 'S', 'D', 'A', 'N', 'T', 'E', 'M', 'O', 'J', 'I' };
-            char[] arrayProductCode = _ProductInfo.ProductCode.ToCharArray();
+            char[] arrayProductCode = ProductInfo.ProductCode.ToCharArray();
             for (int i = 0; i < arrayProductCode.Length; i++)
             {
                 for(int j = 0; j < code.Length; j++)
                 {
                     if(arrayProductCode[i] == code[j] )
                     {
-
-#pragma warning disable CA1305 // Specify IFormatProvider
-                        LblConverCode += j.ToString();
-#pragma warning restore CA1305 // Specify IFormatProvider
-
+                        LblConverCode += j.ToString(CultureInfo.InvariantCulture);
                     }
                 }   
             }
@@ -69,7 +60,7 @@ namespace PriceChecker.VIEWMODEL.USER_VIEWMODEL
         }
         void OnCodeConverterPropertyChanged(object sender, PropertyChangedEventArgs args)
         {
-            (_codeConverter as Command).ChangeCanExecute();
+            (CodeConverterCommand as Command).ChangeCanExecute();
         }
 
     }

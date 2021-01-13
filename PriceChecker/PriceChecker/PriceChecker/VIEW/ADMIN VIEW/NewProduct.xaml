@@ -1,14 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<PriceChecker:CustomContentPage  
+             xmlns:PriceChecker="clr-namespace:PriceChecker.VIEW.Custom" 
+             xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:Behaviors="clr-namespace:PriceChecker.Validation.Behavior"
              xmlns:Validators="clr-namespace:PriceChecker.Validation.Validators.Implementations"
              x:Class="PriceChecker.VIEW.ADMIN_VIEW.NewProduct"
-             xmlns:view ="clr-namespace:PriceChecker.VIEW.ADMIN_VIEW">
+             xmlns:view ="clr-namespace:PriceChecker.VIEW.ADMIN_VIEW" 
+             xmlns:converters="clr-namespace:PriceChecker"
+             EnableBackButtonOverride="True">
+ 
     <StackLayout Padding="10,10,10,10">
         <view:ProductView></view:ProductView>
 
-        <Button  Command="{Binding TakePhotos}" Text="Take Photo" />
-            <Button Command="{Binding AddProductCommand}" Text="Submit" BackgroundColor="#e8c433"/>
+        <Button  Command="{Binding TakeProductImgCommand}" Text="Take Photo" BackgroundColor="#e8c433"/>
+        <Button Command="{Binding AddProductCommand}" Text="Submit" BackgroundColor="#e8c433"/>
     </StackLayout>
-</ContentPage>
+</PriceChecker:CustomContentPage>

@@ -18,7 +18,7 @@ namespace PriceChecker.VIEW
 		public LogInPage (INavigation navigation)
 		{
 			InitializeComponent ();
-            BindingContext = new AdminViewModel(navigation);   
+            BindingContext = new LogInViewModel(navigation);   
         }
 	}
 }

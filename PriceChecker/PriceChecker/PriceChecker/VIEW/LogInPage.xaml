@@ -7,10 +7,10 @@
     <pages:PopupPage.Content>
         <StackLayout VerticalOptions="Center" HorizontalOptions="Center"   BackgroundColor="#BF80ffffff">
             <StackLayout Orientation="Vertical" HeightRequest="200" WidthRequest="300" BackgroundColor="WhiteSmoke" >
-                <Entry Text="{Binding UserName,Mode=TwoWay}" Margin="20,20,20,10" Placeholder="Enter Username"></Entry>
-                <Entry Text="{Binding PassWord,Mode=TwoWay}" Margin="20,0,20,0" Placeholder="Enter Password" IsPassword="True"></Entry>
-                <Button Command="{Binding _logInCommand}" Margin="20,0,20,0" Text="Login" BackgroundColor="#e8c433"/>
-                <Label Text="{Binding ErrorMessage}" />
+                <Entry Text="{Binding Username,Mode=TwoWay}" Margin="20,20,20,10" Placeholder="Enter Username"></Entry>
+                <Entry Text="{Binding Password,Mode=TwoWay}" Margin="20,0,20,0" Placeholder="Enter Password" IsPassword="True"></Entry>
+                <Button Command="{Binding LogInCommand}" Margin="20,0,20,0" Text="Login" BackgroundColor="#e8c433"/>
+                <Label Text="{Binding Errormessage}" />
             </StackLayout>
         </StackLayout>
     </pages:PopupPage.Content>

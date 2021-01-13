@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "AkjbPTneMNjwLjunExcx80d//KI1iVs+NZoH3m74P7HCLta134B9dHay8Iosd2lTTtXwJ6QyhU+WqBG/SO/9tw==",
+  "dgSpecHash": "GaeYdaz+KIP1tvkpnNpMiE42yMIWii0RewjGKzLSixNx456z+aMZliyVDaYS021qH8kvfh0gk715qo82A50A2Q==",
   "success": true,
   "projectFilePath": "D:\\repo\\PriceCheckerXamarin\\PriceChecker\\PriceChecker\\PriceChecker.Android\\PriceChecker.Android.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\christopher\\.nuget\\packages\\fastandroidcamera\\2.0.0\\fastandroidcamera.2.0.0.nupkg.sha512",
     "C:\\Users\\christopher\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\christopher\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\christopher\\.nuget\\packages\\plugin.permissions\\6.0.1\\plugin.permissions.6.0.1.nupkg.sha512",
     "C:\\Users\\christopher\\.nuget\\packages\\rg.plugins.popup\\2.0.0.6\\rg.plugins.popup.2.0.0.6.nupkg.sha512",
     "C:\\Users\\christopher\\.nuget\\packages\\sqlite-net\\1.6.292\\sqlite-net.1.6.292.nupkg.sha512",
     "C:\\Users\\christopher\\.nuget\\packages\\sqlite-net-pcl\\1.7.335\\sqlite-net-pcl.1.7.335.nupkg.sha512",
@@ -60,7 +61,7 @@
     "C:\\Users\\christopher\\.nuget\\packages\\xamarin.android.support.versionedparcelable\\28.0.0.3\\xamarin.android.support.versionedparcelable.28.0.0.3.nupkg.sha512",
     "C:\\Users\\christopher\\.nuget\\packages\\xamarin.android.support.viewpager\\28.0.0.3\\xamarin.android.support.viewpager.28.0.0.3.nupkg.sha512",
     "C:\\Users\\christopher\\.nuget\\packages\\xamarin.essentials\\1.5.2\\xamarin.essentials.1.5.2.nupkg.sha512",
-    "C:\\Users\\christopher\\.nuget\\packages\\xamarin.forms\\4.8.0.1534\\xamarin.forms.4.8.0.1534.nupkg.sha512",
+    "C:\\Users\\christopher\\.nuget\\packages\\xamarin.forms\\4.8.0.1560\\xamarin.forms.4.8.0.1560.nupkg.sha512",
     "C:\\Users\\christopher\\.nuget\\packages\\zxing.net.mobile\\2.4.1\\zxing.net.mobile.2.4.1.nupkg.sha512",
     "C:\\Users\\christopher\\.nuget\\packages\\zxing.net.mobile.forms\\2.4.1\\zxing.net.mobile.forms.2.4.1.nupkg.sha512"
   ],

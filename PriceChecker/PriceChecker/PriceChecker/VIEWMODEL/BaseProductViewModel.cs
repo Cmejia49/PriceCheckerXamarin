@@ -7,106 +7,91 @@ using PriceChecker.SERVICE;
 using System;
 using PriceChecker.VIEWMODEL.ADMIN_VIEWMODEL;
 using PriceChecker.Validation.Validators.Implementations;
+using System.Collections.ObjectModel;
+using System.Globalization;
 
 namespace PriceChecker.VIEWMODEL
 {
     public class BaseProductViewModel : INotifyPropertyChanged 
     {
 
-#pragma warning disable CA1051 // Do not declare visible instance fields
-        public ProductInfo _ProductInfo;
-  
-#pragma warning restore CA1051 // Do not declare visible instance fields
-#pragma warning disable CA1051 // Do not declare visible instance fields
-        public INavigation _Navigation;
-#pragma warning restore CA1051 // Do not declare visible instance fields
-#pragma warning disable CA1051 // Do not declare visible instance fields
-        public IProductRepository _IProductRepositoty;
-#pragma warning restore CA1051 // Do not declare visible instance fields
-#pragma warning disable CA1051 // Do not declare visible instance fields
-        public NewProductViewModel _NewProductViewModel;
-#pragma warning restore CA1051 // Do not declare visible instance fields
-#pragma warning disable CA1051 // Do not declare visible instance fields
-        public ProductDetailViewModel _ProductDetailViewModel;
-#pragma warning restore CA1051 // Do not declare visible instance fields
+
+         internal ProductInfo ProductInfo;
+         internal INavigation Navigation;
+         internal IProductRepository IProductRepositoty;
+         internal NewProductViewModel NewProductViewModel;
+         internal ProductDetailViewModel ProductDetailViewModel;
+
  
 
         public int ProductID
         {
-            get => _ProductInfo.ProductID;
+            get => ProductInfo.ProductID;
             set
             {
 
-                _ProductInfo.ProductID = value;
-                OnpropertyChanged(nameof(ProductID));
+                ProductInfo.ProductID = value;
+                OnPropertyChanged(nameof(ProductID));
             }
         }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Globalization", "CA1304:Specify CultureInfo", Justification = "<Pending>")]
         public string ProductCode
         {
-            get => _ProductInfo.ProductCode;
+            get => ProductInfo.ProductCode;
             set
             {
-#pragma warning disable CA1062 // Validate arguments of public methods
-                _ProductInfo.ProductCode = value.ToUpper();
-#pragma warning restore CA1062 // Validate arguments of public methods
-                OnpropertyChanged(nameof(ProductCode));
-            }
-        }
 
-       
-       public string ProductCategory
-        {
-            get => _ProductInfo.ProductCategory;
-            set
-            {
-                _ProductInfo.ProductCategory = value;
-                OnpropertyChanged(nameof(ProductCategory));
+                ProductInfo.ProductCode = value.ToUpper(CultureInfo.InvariantCulture);
+                OnPropertyChanged(nameof(ProductCode));
             }
         }
-      
+   
         public string ProductName
         {
-            get => _ProductInfo.ProductName;
+            get => ProductInfo.ProductName;
             set
             {
-#pragma warning disable CA1062 // Validate arguments of public methods
-#pragma warning disable CA1304 // Specify CultureInfo
-                _ProductInfo.ProductName = value.ToUpper();
-#pragma warning restore CA1304 // Specify CultureInfo
-#pragma warning restore CA1062 // Validate arguments of public methods
-                OnpropertyChanged(nameof(ProductName));
+                ProductInfo.ProductName = value.ToUpper(CultureInfo.InvariantCulture);
+                OnPropertyChanged(nameof(ProductName));
             }
         }
         public string ProductPrice
         {
-            get => _ProductInfo.ProductPrice;
+            get => ProductInfo.ProductPrice;
             set
             {
-                _ProductInfo.ProductPrice = value;
-                OnpropertyChanged(nameof(ProductPrice));
+                ProductInfo.ProductPrice = value;
+                OnPropertyChanged(nameof(ProductPrice));
             }
         }
-        List<ProductInfo> _ProductList;
-#pragma warning disable CA2227 // Collection properties should be read only
-        public List<ProductInfo> ProductList
-#pragma warning restore CA2227 // Collection properties should be read only
+      
+        public string ProductImagePath
         {
-            get => _ProductList;
+            get => ProductInfo.ProductImagePath;
             set
             {
-                _ProductList = value;
-                OnpropertyChanged(nameof(ProductList));
+                ProductInfo.ProductImagePath = value;
+                OnPropertyChanged(nameof(ProductImagePath));
             }
         }
 
-        //Search property
-#pragma warning disable IDE1006 // Naming Styles
-#pragma warning disable CA1707 // Identifiers should not contain underscores
-        public string _SearchText { get; set; }
-#pragma warning restore CA1707 // Identifiers should not contain underscores
-#pragma warning restore IDE1006 // Naming Styles
+       private List<ProductInfo> _ProductList;
+#pragma warning disable CA1002 // Do not expose generic lists
+        public List<ProductInfo> ProductList
+#pragma warning restore CA1002 // Do not expose generic lists
+
+        {
+            get => _ProductList;
+          internal set
+            {
+                _ProductList = value;
+                OnPropertyChanged(nameof(ProductList));
+            }
+
+        }
+
+
+        private string _SearchText { get; set; }
         public string SearchText
         {
             get { return _SearchText; }
@@ -114,44 +99,45 @@ namespace PriceChecker.VIEWMODEL
             {
                 _SearchText = value;
 
-                OnpropertyChanged(nameof(SearchText));
+                OnPropertyChanged(nameof(SearchText));
                 
             }
         }
-#pragma warning disable IDE1006 // Naming Styles
-        public string lblConvertCode { get; set; }
-#pragma warning restore IDE1006 // Naming Styles
+
+        private string _lblConvertCode { get; set; }
+
         public string LblConverCode
         {
-            get => lblConvertCode;
+            get => _lblConvertCode;
             set
             {
-                lblConvertCode = value;
-                OnpropertyChanged(nameof(LblConverCode));
+                _lblConvertCode = value;
+                OnPropertyChanged(nameof(LblConverCode));
             }
         }
 
-#pragma warning disable IDE1006 // Naming Styles
-        public bool isEditable { get; set; }
-#pragma warning restore IDE1006 // Naming Styles
+        private bool isEditable { get; set; }
+
         public bool IsEditable
         {
             get => isEditable;
             set
             {
                 isEditable = value;
-                OnpropertyChanged(nameof(IsEditable));
+                OnPropertyChanged(nameof(IsEditable));
             }
         }
 
+   
+
         internal IProductRepository ProductRepository { get => ProductRepository1; set => ProductRepository1 = value; }
-      internal IProductRepository ProductRepository1 { get => _IProductRepositoty; set => _IProductRepositoty = value; }
+      internal IProductRepository ProductRepository1 { get => IProductRepositoty; set => IProductRepositoty = value; }
 
 
    
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected void OnpropertyChanged([CallerMemberName] string propertyName = "")
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             

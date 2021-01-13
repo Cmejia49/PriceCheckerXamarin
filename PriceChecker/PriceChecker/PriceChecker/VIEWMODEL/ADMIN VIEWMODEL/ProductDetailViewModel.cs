@@ -1,9 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Plugin.Media;
+using Plugin.Media.Abstractions;
 using PriceChecker.MODEL;
 using PriceChecker.SERVICE;
 using PriceChecker.VIEW.ADMIN_VIEW;
@@ -16,6 +19,8 @@ namespace PriceChecker.VIEWMODEL.ADMIN_VIEWMODEL
         public ICommand UpdateProductCommand { get; set; }
         public ICommand DeleteProductCommand { get; set; }
         public ICommand BarCodeGeneratorCommand { get; set; }
+        public ICommand TakePhotoProductImgCommand { get; set; }
+        public ICommand DeleteImgProductCommand { get; set; }
         private static string ShopCode = "^[D,A,N,T,E,M,O,J,I,S]{1,10}$";
 
         public ProductDetailViewModel(INavigation navigation, int selectedProductID, bool iseditable)
@@ -23,17 +28,45 @@ namespace PriceChecker.VIEWMODEL.ADMIN_VIEWMODEL
             IsEditable = iseditable;
             Regex rgx = new Regex(ShopCode);
             PropertyChanged += OnPersonEditPropertyChanged;
-            _Navigation = navigation;
+            Navigation = navigation;
             ProductRepository = new ProductRepository();
-            _ProductInfo = new ProductInfo();
-            _ProductInfo.ProductID = selectedProductID;
+            ProductInfo = new ProductInfo();
+            ProductInfo.ProductID = selectedProductID;
             UpdateProductCommand = new Xamarin.Forms.Command(
                 execute: async () => {
                     PropertyChanged -= OnPersonEditPropertyChanged;
-#pragma warning disable CA2007 // Consider calling ConfigureAwait on the awaited task
-                    await UpdateCommand();
-#pragma warning restore CA2007 // Consider calling ConfigureAwait on the awaited task
+                    await UpdateProduct();
                 }, 
+                canExecute: () =>
+                {
+                    return ProductCode != null &&
+                            ProductName != null &&
+                             ProductPrice != null &&
+                              ProductImagePath !=null &&
+                               ProductCode.Length > 0 &&
+                                ProductName.Length > 2 &&
+                                 ProductPrice.Length > 0 &&
+                                  rgx.IsMatch(ProductCode);
+
+                });
+            DeleteProductCommand = new Command(async () => await DeleteProduct());
+            BarCodeGeneratorCommand = new Command(async () => await ShowBarCodeGenerator());
+
+
+            DeleteImgProductCommand = new Command(
+            execute: () =>
+            {
+                DeleteImage();
+            },
+            canExecute: () =>
+            {
+                   return ProductImagePath != null;
+            });
+
+            TakePhotoProductImgCommand = new Command(execute: async () => {
+                PropertyChanged -= OnPersonEditPropertyChanged;
+                await TakePhotos();
+            },
                 canExecute: () =>
                 {
                     return ProductCode != null &&
@@ -45,40 +78,61 @@ namespace PriceChecker.VIEWMODEL.ADMIN_VIEWMODEL
                                  rgx.IsMatch(ProductCode);
 
                 });
-#pragma warning disable CA2007 // Consider calling ConfigureAwait on the awaited task
-            DeleteProductCommand = new Command(async () => await DeleteCommand());
-#pragma warning restore CA2007 // Consider calling ConfigureAwait on the awaited task
-#pragma warning disable CA2007 // Consider calling ConfigureAwait on the awaited task
-            BarCodeGeneratorCommand = new Command(async () => await ShowBarCodeGenerator());
-#pragma warning restore CA2007 // Consider calling ConfigureAwait on the awaited task
+
             GetProductData();
         }
 
         void GetProductData()
         {
-            _ProductInfo = ProductRepository.GetProduct(_ProductInfo.ProductID);
+            ProductInfo = ProductRepository.GetProduct(ProductInfo.ProductID);
         }
-        async Task UpdateCommand()
+        async Task UpdateProduct()
         {
-            ProductRepository.UpdateProduct(_ProductInfo);
-#pragma warning disable CA2007 // Consider calling ConfigureAwait on the awaited task
-            await _Navigation.PopAsync();
-#pragma warning restore CA2007 // Consider calling ConfigureAwait on the awaited task
+            ProductRepository.UpdateProduct(ProductInfo);
+            await Navigation.PopAsync();
         }
-        async Task DeleteCommand()
+        private async Task DeleteProduct()
         {
             PropertyChanged -= OnPersonEditPropertyChanged;
-            ProductRepository.DeleteProduct(_ProductInfo.ProductID);
-#pragma warning disable CA2007 // Consider calling ConfigureAwait on the awaited task
-            await _Navigation.PopAsync();
-#pragma warning restore CA2007 // Consider calling ConfigureAwait on the awaited task
+            ProductRepository.DeleteProduct(ProductInfo.ProductID);
+            await Navigation.PopAsync();
         }
 
-        async Task ShowBarCodeGenerator()
+        private async Task ShowBarCodeGenerator()
         {
-#pragma warning disable CA2007 // Consider calling ConfigureAwait on the awaited task
-            await _Navigation.PushAsync(new BarCodeGeneratorPage(_ProductInfo.ProductID, IsEditable));
-#pragma warning restore CA2007 // Consider calling ConfigureAwait on the awaited task
+            await Navigation.PushAsync(new BarCodeGeneratorPage(ProductInfo.ProductID, IsEditable));
+        }
+
+        private async Task TakePhotos()
+        {
+            var photo = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions
+            {
+                Directory = "ProductImage",
+                SaveToAlbum = true,
+                PhotoSize = new Plugin.Media.Abstractions.PhotoSize()
+            }).ConfigureAwait(false);
+
+
+            try
+            {
+      
+                var path = photo.Path;
+                DependencyService.Get<IPhotoManager>().DeletePhoto(ProductImagePath);
+                ProductImagePath = photo.AlbumPath;
+                ProductRepository.UpdateProduct(ProductInfo);
+            }
+#pragma warning disable CA1031 // Do not catch general exception types
+            catch (Exception)
+#pragma warning restore CA1031 // Do not catch general exception types
+            {
+                await Application.Current.MainPage.DisplayAlert("Canceled", "Photo Canceled", "OK");
+            }
+
+        }
+
+        void DeleteImage()
+        {
+            DependencyService.Get<IPhotoManager>().DeletePhoto(ProductImagePath);
         }
 
         void OnPersonEditPropertyChanged(object sender, PropertyChangedEventArgs args)
@@ -86,8 +140,6 @@ namespace PriceChecker.VIEWMODEL.ADMIN_VIEWMODEL
             (UpdateProductCommand as Command).ChangeCanExecute();
         }
 
-        //productname == productname && productid != _selectedID
-        //error
 
     }
 }

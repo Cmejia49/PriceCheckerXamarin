@@ -35,6 +35,23 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
+      "Plugin.Permissions/6.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Android.Support.Compat": "28.0.0.3",
+          "Xamarin.Android.Support.Core.Utils": "28.0.0.3",
+          "Xamarin.Essentials": "1.5.2"
+        },
+        "frameworkAssemblies": [
+          "Java.Interop"
+        ],
+        "compile": {
+          "lib/monoandroid90/Plugin.Permissions.dll": {}
+        },
+        "runtime": {
+          "lib/monoandroid90/Plugin.Permissions.dll": {}
+        }
+      },
       "Rg.Plugins.Popup/2.0.0.6": {
         "type": "package",
         "dependencies": {
@@ -987,7 +1004,7 @@
           "lib/monoandroid90/Xamarin.Essentials.dll": {}
         }
       },
-      "Xamarin.Forms/4.8.0.1534": {
+      "Xamarin.Forms/4.8.0.1560": {
         "type": "package",
         "dependencies": {
           "Xamarin.Android.Support.CustomTabs": "28.0.0.3",
@@ -1051,11 +1068,12 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Plugin.Permissions": "6.0.1",
           "Rg.Plugins.Popup": "2.0.0.6",
           "System.ComponentModel.Annotations": "4.7.0",
           "System.Net.Http": "4.3.4",
           "Xam.Plugin.Media": "5.0.1",
-          "Xamarin.Forms": "4.8.0.1534",
+          "Xamarin.Forms": "4.8.0.1560",
           "ZXing.Net.Mobile": "2.4.1",
           "ZXing.Net.Mobile.Forms": "2.4.1",
           "sqlite-net": "1.6.292",
@@ -1229,6 +1247,37 @@
         "lib/netstandard1.0/_._",
         "netstandard.library.2.0.3.nupkg.sha512",
         "netstandard.library.nuspec"
+      ]
+    },
+    "Plugin.Permissions/6.0.1": {
+      "sha512": "na/0FNhyKmSicANWZMLSM0y/FW2AvLoawX3lsvBpELwP15sdJRyuBhRKk1OQjRoNrmTIewcON1tJFyydjMGWcA==",
+      "type": "package",
+      "path": "plugin.permissions/6.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/monoandroid10.0/Plugin.Permissions.dll",
+        "lib/monoandroid10.0/Plugin.Permissions.pdb",
+        "lib/monoandroid80/Plugin.Permissions.dll",
+        "lib/monoandroid80/Plugin.Permissions.pdb",
+        "lib/monoandroid81/Plugin.Permissions.dll",
+        "lib/monoandroid81/Plugin.Permissions.pdb",
+        "lib/monoandroid90/Plugin.Permissions.dll",
+        "lib/monoandroid90/Plugin.Permissions.pdb",
+        "lib/netstandard1.0/Plugin.Permissions.dll",
+        "lib/netstandard1.0/Plugin.Permissions.pdb",
+        "lib/netstandard2.0/Plugin.Permissions.dll",
+        "lib/netstandard2.0/Plugin.Permissions.pdb",
+        "lib/uap10.0.16299/Plugin.Permissions.dll",
+        "lib/uap10.0.16299/Plugin.Permissions.pdb",
+        "lib/uap10.0.16299/Plugin.Permissions.pri",
+        "lib/xamarinios10/Plugin.Permissions.dll",
+        "lib/xamarinios10/Plugin.Permissions.pdb",
+        "lib/xamarintvos10/Plugin.Permissions.dll",
+        "lib/xamarintvos10/Plugin.Permissions.pdb",
+        "plugin.permissions.6.0.1.nupkg.sha512",
+        "plugin.permissions.nuspec",
+        "readme.txt"
       ]
     },
     "Rg.Plugins.Popup/2.0.0.6": {
@@ -2446,10 +2495,10 @@
         "xamarin.essentials.nuspec"
       ]
     },
-    "Xamarin.Forms/4.8.0.1534": {
-      "sha512": "h5S4nWRBYUNgbs2FtxkSLISh2FUBdLGZ0yVR0KP8utNMTOiRUhWcLzuJf3w4NYtboWFFUx/dyqZpi+aCcIMvSg==",
+    "Xamarin.Forms/4.8.0.1560": {
+      "sha512": "uWw6knrT26YOI+vZXB8YvYAEimycokY0qN58u++Rb7Y4tcWm/Fzn6UWaGaTCY1VppTXA1JrQMsb5vxBvoyYFhg==",
       "type": "package",
-      "path": "xamarin.forms/4.8.0.1534",
+      "path": "xamarin.forms/4.8.0.1560",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2758,7 +2807,7 @@
         "lib/uap10.0.16299/Xamarin.Forms.Xaml.dll",
         "lib/uap10.0.16299/Xamarin.Forms.Xaml.pdb",
         "lib/uap10.0.16299/Xamarin.Forms.Xaml.xml",
-        "xamarin.forms.4.8.0.1534.nupkg.sha512",
+        "xamarin.forms.4.8.0.1560.nupkg.sha512",
         "xamarin.forms.nuspec"
       ]
     },
@@ -2815,6 +2864,7 @@
   "projectFileDependencyGroups": {
     "MonoAndroid,Version=v9.0": [
       "NETStandard.Library >= 2.0.3",
+      "Plugin.Permissions >= 6.0.1",
       "PriceChecker >= 1.0.0",
       "Rg.Plugins.Popup >= 2.0.0.6",
       "System.ComponentModel.Annotations >= 4.7.0",
@@ -2826,7 +2876,7 @@
       "Xamarin.Android.Support.v7.AppCompat >= 28.0.0.3",
       "Xamarin.Android.Support.v7.CardView >= 28.0.0.3",
       "Xamarin.Android.Support.v7.MediaRouter >= 28.0.0.3",
-      "Xamarin.Forms >= 4.8.0.1534",
+      "Xamarin.Forms >= 4.8.0.1560",
       "ZXing.Net.Mobile >= 2.4.1",
       "ZXing.Net.Mobile.Forms >= 2.4.1",
       "sqlite-net-pcl >= 1.7.335"
@@ -2878,6 +2928,10 @@
             "target": "Package",
             "version": "[2.0.3, )"
           },
+          "Plugin.Permissions": {
+            "target": "Package",
+            "version": "[6.0.1, )"
+          },
           "Rg.Plugins.Popup": {
             "target": "Package",
             "version": "[2.0.0.6, )"
@@ -2920,7 +2974,7 @@
           },
           "Xamarin.Forms": {
             "target": "Package",
-            "version": "[4.8.0.1534, )"
+            "version": "[4.8.0.1560, )"
           },
           "ZXing.Net.Mobile": {
             "target": "Package",

@@ -4,9 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
 
-#pragma warning disable CA1707 // Identifiers should not contain underscores
 namespace PriceChecker.VIEWMODEL.USER_VIEWMODEL
-#pragma warning restore CA1707 // Identifiers should not contain underscores
 {
     public class BarCodeScanViewModel:BaseProductViewModel
     {
@@ -15,10 +13,9 @@ namespace PriceChecker.VIEWMODEL.USER_VIEWMODEL
         public BarCodeScanViewModel(INavigation navigation)
         {
 
-            _Navigation = navigation;
+            Navigation = navigation;
 
         }
-
 
         public ZXing.Result Result { get; set; }
 
@@ -31,7 +28,7 @@ namespace PriceChecker.VIEWMODEL.USER_VIEWMODEL
                 if (!bool.Equals(this.isAnalyzing, value))
                 {
                     this.isAnalyzing = value;
-                    OnpropertyChanged(nameof(IsAnalyzing));
+                    OnPropertyChanged(nameof(IsAnalyzing));
                 }
             }
         }
@@ -45,7 +42,7 @@ namespace PriceChecker.VIEWMODEL.USER_VIEWMODEL
                 if (!bool.Equals(this.isScanning, value))
                 {
                     this.isScanning = value;
-                    OnpropertyChanged(nameof(IsScanning));
+                    OnPropertyChanged(nameof(IsScanning));
                 }
             }
         }
@@ -62,9 +59,7 @@ namespace PriceChecker.VIEWMODEL.USER_VIEWMODEL
                     Device.BeginInvokeOnMainThread(async () =>
                     {
                         SearchText = Result.Text;
-#pragma warning disable CA2007 // Consider calling ConfigureAwait on the awaited task
-                        await _Navigation.PushAsync(new UserPage(SearchText));
-#pragma warning restore CA2007 // Consider calling ConfigureAwait on the awaited task
+                        await Navigation.PushAsync(new UserPage(SearchText));
                     });
                 });
             }

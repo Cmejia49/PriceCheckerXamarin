@@ -1,24 +1,40 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using PriceChecker.VIEWMODEL.ADMIN_VIEWMODEL;
-using PriceChecker.VIEWMODEL.ValidationCommands;
-using Xamarin.Forms;
+﻿using PriceChecker.VIEWMODEL.ADMIN_VIEWMODEL;
 using Xamarin.Forms.Xaml;
-
+using PriceChecker.VIEW.Custom;
 namespace PriceChecker.VIEW.ADMIN_VIEW
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class NewProduct : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+	public partial class NewProduct : CustomContentPage
+    {
+  
 		public NewProduct(bool iseditable)
 		{
+       
 			InitializeComponent ();
-            this.BindingContext = new NewProductViewModel(Navigation,iseditable);
-	
-     
-}
- }
+            BindingContext = new NewProductViewModel(Navigation,iseditable);
+      
+
+
+            if (EnableBackButtonOverride)
+              {
+                this.CustomBackButtonAction = async () =>
+                {
+                    var result = await this.DisplayAlert(null,
+                        "Hey wait now! are you sure " +
+                        "you want to go back?",
+                        "Yes go back", "Nope");
+
+                    if (result)
+                    {
+                        NewProductViewModel newProductViewModel = BindingContext as NewProductViewModel;
+                        if (newProductViewModel.DeleteImgProductCommand.CanExecute(null))
+                            newProductViewModel.DeleteImgProductCommand.Execute(null);
+                        await Navigation.PopAsync(true);
+                    }
+                };
+            }
+        }
+
+
+    }
 }

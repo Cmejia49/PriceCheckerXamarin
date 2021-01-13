@@ -1,11 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<PriceChecker:CustomContentPage 
+             xmlns:PriceChecker="clr-namespace:PriceChecker.VIEW.Custom" 
+             xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:PriceChecker.VIEW.ADMIN_VIEW"
-             x:Class="PriceChecker.VIEW.ADMIN_VIEW.ProductDetailPage">
+             x:Class="PriceChecker.VIEW.ADMIN_VIEW.ProductDetailPage"
+             EnableBackButtonOverride="True">
     <StackLayout Padding="20" Spacing="20">
         <local:ProductView></local:ProductView>
-        
+        <Button Command="{Binding TakePhotoProductImgCommand}" Text="Take Photo"  BackgroundColor="#e8c433"/>
         <Grid HorizontalOptions="FillAndExpand" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -16,7 +19,6 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-
             <Button Command="{Binding UpdateProductCommand}" Text="Update" Grid.Column="0" Grid.Row="0"  BackgroundColor="#e8c433"/>
             <Button Command="{Binding DeleteProductCommand}" Text="Delete" Grid.Column="2" Grid.Row="0"  BackgroundColor="#e8c433"/>
             <Label Text="Bar Code Generator" TextColor="BlueViolet" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand">
@@ -27,4 +29,4 @@
             </Label>
         </Grid>
     </StackLayout>
-</ContentPage>
+</PriceChecker:CustomContentPage>

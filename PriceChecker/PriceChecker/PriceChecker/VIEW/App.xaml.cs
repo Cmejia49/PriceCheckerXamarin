@@ -18,7 +18,7 @@ namespace PriceChecker
         public void OnAppStart()
         {
 
-            MainPage = new NavigationPage(new FrontPage());
+            MainPage = new NavigationPage(new MainMenuPage());
 
 
         }

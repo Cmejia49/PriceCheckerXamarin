@@ -10,8 +10,8 @@ D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\obj\Debug\net
 D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\obj\Debug\netstandard2.0\VIEW\ADMIN VIEW\ProductDetailPage.xaml.g.cs
 D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\obj\Debug\netstandard2.0\VIEW\ADMIN VIEW\ProductView.xaml.g.cs
 D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\obj\Debug\netstandard2.0\VIEW\App.xaml.g.cs
-D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\obj\Debug\netstandard2.0\VIEW\FrontPage.xaml.g.cs
 D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\obj\Debug\netstandard2.0\VIEW\LogInPage.xaml.g.cs
+D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\obj\Debug\netstandard2.0\VIEW\MainMenuPage.xaml.g.cs
 D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\obj\Debug\netstandard2.0\VIEW\USER VIEW\BarCodePageScan.xaml.g.cs
 D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\obj\Debug\netstandard2.0\VIEW\USER VIEW\UserPage.xaml.g.cs
 D:\repo\PriceCheckerXamarin\PriceChecker\PriceChecker\PriceChecker\obj\Debug\netstandard2.0\VIEW\USER VIEW\UserProductDetailPage.xaml.g.cs

@@ -14,17 +14,16 @@ namespace PriceChecker.MODEL
         [Column("ProductCode")]
         public string ProductCode { get; set; }
 
-        [Column("ProductCategory")]
-        public string ProductCategory { get; set; }
-
         [Column("ProductName")]
         public string ProductName { get; set; }
 
         [Column("ProductPrice")]
         public string ProductPrice { get; set; }
-        
 
-      
+        [Column("ProductImagePath")]
+        public string ProductImagePath { get; set; }
+
+
     }
 
    

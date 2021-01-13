@@ -18,10 +18,12 @@ namespace PriceChecker.Validation.Behavior
 
         public string PropertyName { get; set; }
 
-        
+
         //  public ValidationGroupBehavior Group { get; set; }
+#pragma warning disable CA2227 // Collection properties should be read only
         public ObservableCollection<IValidator> Validators { get; set; } = new ObservableCollection<IValidator>();
-  
+#pragma warning restore CA2227 // Collection properties should be read only
+
 
         public bool Validate()
         {

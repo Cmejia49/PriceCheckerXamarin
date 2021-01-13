@@ -2,38 +2,27 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:Behaviors="clr-namespace:PriceChecker.Validation.Behavior"
-             xmlns:Validators="clr-namespace:PriceChecker.Validation.Validators.Implementations"
+             xmlns:Validators="clr-namespace:PriceChecker.Validation.Validators.Implementations" xmlns:converters="clr-namespace:PriceChecker"
              x:Class="PriceChecker.VIEW.ADMIN_VIEW.ProductView" x:Name="UC">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <converters:ImageFileToImageSourceConverter x:Key="ImageFileToImageSourceConverter" />
+        </ResourceDictionary>
+    </ContentView.Resources>
     <StackLayout Padding="10,10" >
-        <Image Source="{Binding ImageSource}" WidthRequest="200" HeightRequest="200" Aspect="AspectFill" />
+        <Image Source="{Binding ProductImagePath, Converter={StaticResource ImageFileToImageSourceConverter}}" WidthRequest="200" HeightRequest="200" Aspect="AspectFill" />
         <Entry Text="{Binding ProductCode, Mode=TwoWay}" Style="{StaticResource DetailEntry}"  Placeholder="Product Code">
-                <Entry.Behaviors>
-                    <Behaviors:ValidationBehavior  PropertyName="Text">
-                        <Behaviors:ValidationBehavior.Validators>
-                            <Validators:RequiredValidator />
-                            <Validators:FormatValidator
+            <Entry.Behaviors>
+                <Behaviors:ValidationBehavior  PropertyName="Text">
+                    <Behaviors:ValidationBehavior.Validators>
+                        <Validators:RequiredValidator />
+                        <Validators:FormatValidator
                                 Message="Invalid Input Please Use ShopCode"
                                 Format="^[D,A,N,T,E,M,O,J,I,S]{1,10}$"/>
-                        </Behaviors:ValidationBehavior.Validators>
-                    </Behaviors:ValidationBehavior>
-                </Entry.Behaviors>
-            </Entry>
-        <Picker Title="Category"
-                TitleColor="Blue"
-                SelectedItem="{Binding ProductCategory, Mode=TwoWay}">
-            <Picker.Items>
-                <x:String>Cookingware</x:String>
-                <x:String>Laundry Equipment</x:String>
-                <x:String>Cleaning Equipment</x:String>
-                <x:String>Storage</x:String>
-                <x:String>Plastic Furniture</x:String>
-                <x:String>Bathroom</x:String>
-                <x:String>Gardening</x:String>
-                <x:String>Diningware</x:String>
-                <x:String>Electric Appliances</x:String>
-                <x:String>other</x:String>
-            </Picker.Items>
-        </Picker>
+                    </Behaviors:ValidationBehavior.Validators>
+                </Behaviors:ValidationBehavior>
+            </Entry.Behaviors>
+        </Entry>
         <Entry  Text="{Binding ProductName, Mode=TwoWay}"  Style="{StaticResource DetailEntry}"  IsReadOnly="{Binding IsEditable}" Placeholder="Product Name">
                 <Entry.Behaviors>
                     <Behaviors:ValidationBehavior PropertyName="Text"  >
